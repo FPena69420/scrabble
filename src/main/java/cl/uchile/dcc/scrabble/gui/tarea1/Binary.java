@@ -2,7 +2,7 @@ package cl.uchile.dcc.scrabble.gui.tarea1;
 
 import java.util.Objects;
 
-public class Binary implements TypesInterface{
+public class Binary extends Num implements TypesInterface{
     java.lang.String value;
 
     public Binary(java.lang.String value){
@@ -34,8 +34,11 @@ public class Binary implements TypesInterface{
     }
 
     public Binary nExtend(int n) {
-        java.lang.String retstring= "";
         int thislength= this.length();
+        if (n<= thislength){
+            return this;
+        }
+        java.lang.String retstring= "";
         if (this.sign().equals("1")) {
             for (int i= 0; i< n-thislength; i++) {
                 retstring+= "1";
@@ -57,11 +60,23 @@ public class Binary implements TypesInterface{
         int sumlength= Math.max(binlength, thislength) + 1;
         java.lang.String tosum1= this.nExtend(sumlength).toString();
         java.lang.String tosum2= bin.nExtend(sumlength).toString();
+        acarreo res1;
+        acarreo res2;
+        acarreo acarreoanterior= new acarreo(0, false);
+        java.lang.String retstring= "";
         /**continuar*/
-        return null;
+        for (int i= 1; i<= sumlength; i++) {
+            res1= suma(java.lang.String.valueOf(tosum1.charAt(sumlength - i)), java.lang.String.valueOf(tosum2.charAt(sumlength - i)));
+            res2= suma(res1.toString(), acarreoanterior.toString());
+            acarreoanterior= new acarreo(1, res1.getbool() || res2.getbool());
+            java.lang.String ret= res2.toString();
+            retstring+= ret;
+        }
+        java.lang.String retstring2= reverse(retstring);
+        return new Binary(retstring2);
     }
 
-    public acarreo suma(java.lang.String bit1, java.lang.String bit2) {
+    public static acarreo suma(java.lang.String bit1, java.lang.String bit2) {
         if (bit1.equals("0")){
             if (bit2.equals("0")){
                 return new acarreo(0, false);
