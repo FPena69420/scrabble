@@ -13,8 +13,11 @@ public class Binary implements TypesInterface{
         return this.value.length();
     }
 
-    public Binary flip(){
+    public java.lang.String sign() {
+        return java.lang.String.valueOf(this.value.charAt(0));
+    }
 
+    public Binary flip(){
         java.lang.String toflip = this.value;
         int length= toflip.length();
         java.lang.String retstring= "";
@@ -30,15 +33,31 @@ public class Binary implements TypesInterface{
         return new Binary(retstring);
     }
 
+    public Binary nExtend(int n) {
+        java.lang.String retstring= "";
+        int thislength= this.length();
+        if (this.sign().equals("1")) {
+            for (int i= 0; i< n-thislength; i++) {
+                retstring+= "1";
+            }
+        }
+        else {
+            for (int i= 0; i< n-thislength; i++) {
+                retstring+= "0";
+            }
+
+        }
+        retstring+= this.toString();
+        return new Binary(retstring);
+    }
+
     public Binary sum(Binary bin){
         int binlength= bin.length();
         int thislength= this.length();
         int sumlength= Math.max(binlength, thislength) + 1;
-        java.lang.String bincopy= "";
-        for (int i= 0; i< sumlength; i++){
-
-        }
-        java.lang.String thiscopy= "";
+        java.lang.String tosum1= this.nExtend(sumlength).toString();
+        java.lang.String tosum2= bin.nExtend(sumlength).toString();
+        /**continuar*/
         return null;
     }
 
