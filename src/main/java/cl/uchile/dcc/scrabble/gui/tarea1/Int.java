@@ -1,10 +1,28 @@
 package cl.uchile.dcc.scrabble.gui.tarea1;
 
+import java.util.Objects;
+
 public class Int extends Num implements TypesInterface{
     int value;
 
     public Int(int value){
         this.value=value;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(Int.class, value);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Int) {
+            var o= (Int) obj;
+            return value== o.value;
+        }
+        else{
+            return false;
+        }
     }
 
     public int getval(){

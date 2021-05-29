@@ -5,13 +5,14 @@ public abstract class Num {
     Binary PosIntToBinary(int num){
         int numbertodivide= num;
         int resto= 0;
-        java.lang.String onestring= "0";
+        java.lang.String onestring= "";
         java.lang.String retstring;
         while (numbertodivide> 0){
             resto= numbertodivide % 2;
             numbertodivide= numbertodivide/2;
             onestring+= resto;
         }
+        onestring+= "0";
         retstring= reverse(onestring);
         return new Binary(retstring);
     }
