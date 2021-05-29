@@ -6,16 +6,13 @@ public abstract class Num {
         int numbertodivide= num;
         int resto= 0;
         java.lang.String onestring= "0";
-        java.lang.String retstring= "";
+        java.lang.String retstring;
         while (numbertodivide> 0){
             resto= numbertodivide % 2;
             numbertodivide= numbertodivide/2;
             onestring+= resto;
         }
-        int i= onestring.length();
-        for (int x= 1; x<=i; x++){
-            retstring+= Character.toString(onestring.charAt(i-x));
-        }
+        retstring= reverse(onestring);
         return new Binary(retstring);
     }
 
