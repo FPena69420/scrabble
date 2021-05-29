@@ -95,6 +95,10 @@ public class Binary extends Num implements TypesInterface{
         }
     }
 
+    public static Binary suma1(){
+        return null;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(Binary.class, value);
