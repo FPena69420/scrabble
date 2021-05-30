@@ -34,6 +34,10 @@ class IntTest {
         Binary expected= new Binary("0101111");
         Binary a1bin= a1.ttBinary();
         assertEquals(expected, a1bin);
+
+        Binary cero= new Binary("0");
+        Int ceroint= new Int(0);
+        assertEquals(cero, ceroint.ttBinary());
     }
 
     @Test

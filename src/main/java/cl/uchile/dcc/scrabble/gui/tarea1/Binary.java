@@ -54,49 +54,40 @@ public class Binary extends Num implements TypesInterface{
         return new Binary(retstring);
     }
 
-    public Binary sum(Binary bin){
-        int binlength= bin.length();
-        int thislength= this.length();
-        int sumlength= Math.max(binlength, thislength) + 1;
-        java.lang.String tosum1= this.nExtend(sumlength).toString();
-        java.lang.String tosum2= bin.nExtend(sumlength).toString();
-        acarreo res1;
-        acarreo res2;
-        acarreo acarreoanterior= new acarreo(0, false);
+    public Binary suma1(){
+        java.lang.String tosum1to;
+        if (!this.toString().equals("0")){
+            if (java.lang.String.valueOf(this.value.charAt(0)).equals("1") && java.lang.String.valueOf(this.value.charAt(1)).equals("1")){
+                tosum1to= this.toString().substring(1);
+            }
+            else {
+                tosum1to= this.toString();
+            }
+        }
+        else {
+            tosum1to= this.toString();
+        }
+        int sumlength= tosum1to.length();
+        java.lang.String sign= this.sign();
         java.lang.String retstring= "";
-        /**continuar*/
-        for (int i= 1; i<= sumlength; i++) {
-            res1= suma(java.lang.String.valueOf(tosum1.charAt(sumlength - i)), java.lang.String.valueOf(tosum2.charAt(sumlength - i)));
-            res2= suma(res1.toString(), acarreoanterior.toString());
-            acarreoanterior= new acarreo(1, res1.getbool() || res2.getbool());
-            java.lang.String ret= res2.toString();
-            retstring+= ret;
-        }
-        java.lang.String retstring2= reverse(retstring);
-        return new Binary(retstring2);
-    }
-
-    public static acarreo suma(java.lang.String bit1, java.lang.String bit2) {
-        if (bit1.equals("0")){
-            if (bit2.equals("0")){
-                return new acarreo(0, false);
+        int i=1;
+        for (; i<= sumlength; i++){
+            if (java.lang.String.valueOf(tosum1to.charAt(sumlength - i)).equals("1")) {
+                retstring+= "0";
             }
-            else{
-                return new acarreo(1,false);
+            else {
+                retstring+= "1";
+                i++;
+                break;
             }
         }
-        else{
-            if (bit2.equals("0")){
-                return new acarreo(1, false);
-            }
-            else{
-                return new acarreo(0,true);
-            }
+        for (; i<= sumlength; i++){
+            retstring+= java.lang.String.valueOf(tosum1to.charAt(sumlength-i));
         }
-    }
-
-    public static Binary suma1(){
-        return null;
+        if (this.sign().equals("0") && java.lang.String.valueOf(retstring.charAt(sumlength-1)).equals("1")) {
+            retstring+= "0";
+        }
+        return new Binary(reverse(retstring));
     }
 
     @Override

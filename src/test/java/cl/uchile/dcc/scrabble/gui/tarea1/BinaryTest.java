@@ -40,20 +40,29 @@ class BinaryTest {
     }
 
     @Test
-    void sum() {
+    void suma1(){
+        Binary s1= bin.suma1();
+        Int i1= new Int(48);
+        Binary expected= i1.ttBinary();
+        assertEquals(expected, s1);
 
-    }
+        Binary s2= new Int(1).ttBinary();
+        expected= new Int(2).ttBinary();
+        assertEquals(expected, s2.suma1());
 
-    @Test
-    void suma() {
-        java.lang.String bit1= "1";
-        java.lang.String bit2= "0";
-        acarreo suma1= new acarreo(1, false);
-        acarreo suma2= new acarreo(0, false);
-        acarreo suma3= new acarreo(0, true);
-        assertEquals(suma1, Binary.suma(bit1, bit2));
-        assertEquals(suma2, Binary.suma(bit2, bit2));
-        assertEquals(suma3, Binary.suma(bit1, bit1));
+        Binary s3= new Int(3).ttBinary();
+        expected= new Int(4).ttBinary();
+        assertEquals(expected, s3.suma1());
+
+        Binary cero= new Int(0).ttBinary();
+        System.out.println(cero.toString());
+
+        Binary minusfour= new Binary("1100");
+        Binary minusthree= new Binary("101");
+        assertEquals(minusthree, minusfour.suma1());
+
+        Binary minusone= new Binary("11");
+        assertEquals(cero, minusone.suma1());
     }
 
     @Test
