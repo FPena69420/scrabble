@@ -17,6 +17,12 @@ public abstract class Num {
         return new Binary(retstring);
     }
 
+    Binary NegIntToBinary(int num) {
+        Binary positive= PosIntToBinary(-num);
+        Binary negative= positive.negative();
+        return negative;
+    }
+
     java.lang.String reverse(java.lang.String string) {
         int i= string.length();
         java.lang.String retstring= "";

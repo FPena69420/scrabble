@@ -33,27 +33,6 @@ public class Binary extends Num implements TypesInterface{
         return new Binary(retstring);
     }
 
-    public Binary nExtend(int n) {
-        int thislength= this.length();
-        if (n<= thislength){
-            return this;
-        }
-        java.lang.String retstring= "";
-        if (this.sign().equals("1")) {
-            for (int i= 0; i< n-thislength; i++) {
-                retstring+= "1";
-            }
-        }
-        else {
-            for (int i= 0; i< n-thislength; i++) {
-                retstring+= "0";
-            }
-
-        }
-        retstring+= this.toString();
-        return new Binary(retstring);
-    }
-
     public Binary suma1(){
         java.lang.String tosum1to;
         if (!this.toString().equals("0")){
@@ -88,6 +67,12 @@ public class Binary extends Num implements TypesInterface{
             retstring+= "0";
         }
         return new Binary(reverse(retstring));
+    }
+
+    public Binary negative(){
+        Binary ret1= this.flip();
+        Binary ret2= ret1.suma1();
+        return ret2;
     }
 
     @Override

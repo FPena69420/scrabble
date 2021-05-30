@@ -38,6 +38,12 @@ class IntTest {
         Binary cero= new Binary("0");
         Int ceroint= new Int(0);
         assertEquals(cero, ceroint.ttBinary());
+
+        Binary minus8= new Int(-8).ttBinary();
+        expected= new Binary("11000");
+        assertEquals(expected, minus8);
+        expected= new Binary("1001");
+        assertEquals(expected, minus8.suma1());
     }
 
     @Test

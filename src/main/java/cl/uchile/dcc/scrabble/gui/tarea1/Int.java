@@ -47,7 +47,12 @@ public class Int extends Num implements TypesInterface{
 
     @Override
     public Binary ttBinary() {
-        return PosIntToBinary(this.value);
+        if (this.value>= 0) {
+            return PosIntToBinary(this.value);
+        }
+        else {
+            return NegIntToBinary(this.value);
+        }
     }
 
     @Override
