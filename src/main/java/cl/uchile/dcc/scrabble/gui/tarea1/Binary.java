@@ -108,12 +108,12 @@ public class Binary extends Num implements TypesInterface{
 
     @Override
     public Binary ttBinary() {
-        return null;
+        return this;
     }
 
     @Override
     public String ttString() {
-        return null;
+        return new String(this.value);
     }
 
     @Override

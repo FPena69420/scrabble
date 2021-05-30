@@ -14,19 +14,45 @@ class IntTest {
     }
 
     @Test
+    void testHashCode() {
+        int hash1= a1.hashCode();
+        int hash2= new Int(47).hashCode();
+        assertEquals(hash1, hash2);
+    }
+
+    @Test
+    void testEquals() {
+        Int a2= new Int(48);
+        Binary a3= new Binary("47");
+        boolean expected= false;
+        assertEquals(expected, a1.equals(a2));
+        assertEquals(expected, a1.equals(a3));
+    }
+
+    @Test
     void getval() {
+        int expected= 47;
+        assertEquals(expected, a1.getval());
     }
 
     @Test
     void ttBool() {
+        assertEquals(null, a1.ttBool());
     }
 
     @Test
     void ttFloat() {
+        /*float fexpected= 47;
+        Float expected= new Float(fexpected);
+        assertEquals(expected, a1.ttFloat());
+        need to override hashcode and equals on Float
+         */
     }
 
     @Test
     void ttInt() {
+        Int a2= new Int(47);
+        assertEquals(a2, a1.ttInt());
     }
 
     @Test
@@ -48,9 +74,16 @@ class IntTest {
 
     @Test
     void ttString() {
+        /*String expected= new String("47");
+        assertEquals(expected, a1.ttString());
+        need to override hashcode and equals in String */
     }
 
     @Test
     void testToString() {
+        java.lang.String expected= "47";
+        String notexpected= new String("47");
+        assertEquals(expected, a1.toString());
+        assertNotEquals(notexpected, a1.toString());
     }
 }

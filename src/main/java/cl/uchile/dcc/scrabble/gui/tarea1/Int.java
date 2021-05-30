@@ -20,7 +20,7 @@ public class Int extends Num implements TypesInterface{
             var o= (Int) obj;
             return value== o.value;
         }
-        else{
+        else {
             return false;
         }
     }
