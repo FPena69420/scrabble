@@ -1,11 +1,33 @@
 package cl.uchile.dcc.scrabble.gui.tarea1;
 
-public class Float implements TypesInterface{
+import java.util.Objects;
+
+public class Float extends Num implements TypesInterface{
     float value;
 
-    Float(float value){
-            this.value= value;
+    Float (float value) {
+        this.value= value;
+    }
+
+    float getValue() {
+        return this.value;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(Float.class, value);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Float) {
+            var o= (Float) obj;
+            return value== o.value;
         }
+        else{
+            return false;
+        }
+    }
 
     @Override
     public Bool ttBool() {
@@ -24,7 +46,15 @@ public class Float implements TypesInterface{
 
     @Override
     public Binary ttBinary() {
-        return null;
+        Int Int;
+        if (this.value>= 0){
+            Int = new Int((int) Math.floor((double) this.value));
+        }
+        else{
+            Int= new Int((int) Math.ceil((double) this.value));
+        }
+        float decimal= Math.abs(value % 1);
+        return new Binary(Int.ttBinary().toString() + DecimalToBinary(decimal));
     }
 
     @Override

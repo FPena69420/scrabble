@@ -14,10 +14,15 @@ public class Binary extends Num implements TypesInterface{
     }
 
     public java.lang.String sign() {
+        /** Retorna el primer char de this.value en forma de java.lang.String */
+
         return java.lang.String.valueOf(this.value.charAt(0));
     }
 
     public Binary flip(){
+        /** Retorna un nuevo Binary tal que cada valor individual de this.value ha sido negado por
+         negación lógica */
+
         java.lang.String toflip = this.value;
         int length= toflip.length();
         java.lang.String retstring= "";
@@ -34,6 +39,9 @@ public class Binary extends Num implements TypesInterface{
     }
 
     public Binary suma1(){
+        /** Retorna un nuevo Binary tal que el valor java.lang.String que contiene representa
+         la suma binaria entre el valor binario que representa this.value y 1 */
+
         java.lang.String tosum1to;
         if (!this.toString().equals("0")){
             if (java.lang.String.valueOf(this.value.charAt(0)).equals("1") && java.lang.String.valueOf(this.value.charAt(1)).equals("1")){
@@ -70,6 +78,8 @@ public class Binary extends Num implements TypesInterface{
     }
 
     public Binary negative(){
+        /** Retorna un nuevo Binary que contiene el negativo del binario que representa this.value */
+
         Binary ret1= this.flip();
         Binary ret2= ret1.suma1();
         return ret2;

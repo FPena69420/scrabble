@@ -37,7 +37,7 @@ public class Int extends Num implements TypesInterface{
     /* Chequear si funciona*/
     @Override
     public Float ttFloat() {
-        return new Float(this.value);
+        return new Float((float) this.value);
     }
 
     @Override
