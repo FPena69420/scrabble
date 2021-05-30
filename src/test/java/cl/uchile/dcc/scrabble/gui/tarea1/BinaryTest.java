@@ -26,20 +26,6 @@ class BinaryTest {
     }
 
     @Test
-    void nExtend(){
-        Binary e1= bin.nExtend(2);
-        Binary expected= new Binary("0101111");
-        assertEquals(expected, e1);
-        Binary e2= bin.nExtend(10);
-        expected= new Binary("0000101111");
-        assertEquals(expected, e2);
-
-        expected= new Binary("11111011");
-        Binary e3= bin2.nExtend(8);
-        assertEquals(expected, e3);
-    }
-
-    @Test
     void suma1(){
         Binary s1= bin.suma1();
         Int i1= new Int(48);
