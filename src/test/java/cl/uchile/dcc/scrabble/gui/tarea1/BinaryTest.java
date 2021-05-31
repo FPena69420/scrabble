@@ -58,10 +58,17 @@ class BinaryTest {
 
     @Test
     void ttFloat() {
+        Binary decimalbinary1= new Binary("11000.011");
+        Float expected= new Float((float) -8.375);
+        assertEquals(expected, decimalbinary1.ttFloat());
     }
 
     @Test
     void ttInt() {
+        assertEquals(new Int(47), bin.ttInt());
+        assertEquals(new Int(-5), bin2.ttInt());
+        Binary minuscero= new Int(-0).ttBinary();
+        assertEquals(new Int(0), minuscero.ttInt());
     }
 
     @Test

@@ -16,19 +16,32 @@ class FloatTest {
     }
 
     @Test
+    void testHashCode() {
+        int h1= f1.hashCode();
+        int expected= new Float((float) 47.375).hashCode();
+        assertEquals(expected, h1);
+    }
+
+    @Test
     void getValue() {
+        float expected= (float) 47.375;
+        assertEquals(expected, f1.getValue());
     }
 
     @Test
     void ttBool() {
+        assertEquals(null, f1.ttBool());
     }
 
     @Test
     void ttFloat() {
+        float expected= (float) 47.375;
+        assertEquals(new Float(expected), f1.ttFloat());
     }
 
     @Test
     void ttInt() {
+        assertEquals(null, f1.ttInt());
     }
 
     @Test
@@ -44,7 +57,7 @@ class FloatTest {
         assertNotEquals(expected, f3);
 
         Float f4= new Float((float) 0.0);
-        assertEquals(expected, f4.ttBinary());
+        assertEquals(f3, f4.ttBinary());
 
         expected= new Float((float) 256.125).ttBinary();
         Binary f5= new Float((float) 256.12500).ttBinary();
@@ -57,5 +70,7 @@ class FloatTest {
 
     @Test
     void testToString() {
+        assertEquals("47.375", f1.toString());
+        assertEquals("-8.375", f2.toString());
     }
 }

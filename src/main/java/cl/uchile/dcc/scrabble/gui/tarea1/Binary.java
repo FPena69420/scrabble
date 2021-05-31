@@ -108,12 +108,40 @@ public class Binary extends Num implements TypesInterface{
 
     @Override
     public Float ttFloat() {
-        return null;
+        int pointpos= -1;
+        int length= this.value.length();
+        java.lang.String binaryfloat= this.value;
+        java.lang.String decimalpart;
+        java.lang.String intpart;
+        float complete;
+        for (int i= 0; i<length; i++) {
+            if (java.lang.String.valueOf(this.value.charAt(i)).equals(".")){
+                pointpos= i;
+            }
+        }
+        if (pointpos== -1){
+            return new Float((float) BinaryToInt(this.value));
+        }
+        else{
+            intpart= binaryfloat.substring(0,pointpos);
+            decimalpart= binaryfloat.substring(pointpos);
+        }
+        float floatintpart= (float) BinaryToInt(intpart);
+        float absdecpart= BinaryToDecimal(decimalpart);
+        if (floatintpart< 0){
+            complete= -(Math.abs(floatintpart) + absdecpart);
+            System.out.println("complete: " + complete);
+        }
+        else{
+            complete= floatintpart + absdecpart;
+        }
+        return new Float(complete);
+
     }
 
     @Override
     public Int ttInt() {
-        return null;
+        return new Int(BinaryToInt(this.value));
     }
 
     @Override

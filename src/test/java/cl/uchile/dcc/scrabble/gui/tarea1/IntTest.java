@@ -42,11 +42,9 @@ class IntTest {
 
     @Test
     void ttFloat() {
-        /*float fexpected= 47;
+        float fexpected= 47;
         Float expected= new Float(fexpected);
         assertEquals(expected, a1.ttFloat());
-        need to override hashcode and equals on Float
-         */
     }
 
     @Test
