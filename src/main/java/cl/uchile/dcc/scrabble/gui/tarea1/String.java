@@ -2,7 +2,7 @@ package cl.uchile.dcc.scrabble.gui.tarea1;
 
 import java.util.Objects;
 
-public class String implements TypesInterface{
+public class String implements TypesInterface, OperationsInterface{
     java.lang.String value;
 
     public String(java.lang.String value){

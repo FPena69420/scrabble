@@ -2,7 +2,7 @@ package cl.uchile.dcc.scrabble.gui.tarea1;
 
 import java.util.Objects;
 
-public class Int extends Num implements TypesInterface{
+public class Int extends Num implements TypesInterface, OperationsInterface{
     int value;
 
     public Int(int value){

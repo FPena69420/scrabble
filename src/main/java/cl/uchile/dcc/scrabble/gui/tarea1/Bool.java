@@ -2,7 +2,7 @@ package cl.uchile.dcc.scrabble.gui.tarea1;
 
 import java.util.Objects;
 
-public class Bool implements TypesInterface{
+public class Bool implements TypesInterface, LogicTheGathering{
     boolean value;
 
     Bool(boolean value){

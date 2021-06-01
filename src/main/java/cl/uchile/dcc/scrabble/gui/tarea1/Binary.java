@@ -2,7 +2,7 @@ package cl.uchile.dcc.scrabble.gui.tarea1;
 
 import java.util.Objects;
 
-public class Binary extends Num implements TypesInterface{
+public class Binary extends Num implements TypesInterface, LogicTheGathering, OperationsInterface{
     java.lang.String value;
 
     public Binary(java.lang.String value){
