@@ -96,7 +96,7 @@ public abstract class Num {
 
     float BinaryToDecimal(java.lang.String decimal){
         /** Toma un String de la forma ".{some String}" tal que {some String} se compone solo de valores numéricos
-         * del 0 al 1 y retorna un float que representa el valor decimal del binario 0.{some String} */
+         del 0 al 1 y retorna un float que representa el valor decimal del binario 0.{some String} */
 
         java.lang.String absdecimal= decimal.substring(1);
         int length= absdecimal.length();

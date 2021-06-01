@@ -66,6 +66,11 @@ class FloatTest {
 
     @Test
     void ttString() {
+        String expected= new String("47.375");
+        assertEquals(expected, f1.ttString());
+
+        expected= new String("-8.375");
+        assertEquals(expected, f2.ttString());
     }
 
     @Test

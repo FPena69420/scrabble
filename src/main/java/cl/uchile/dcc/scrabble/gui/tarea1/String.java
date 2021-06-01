@@ -1,11 +1,29 @@
 package cl.uchile.dcc.scrabble.gui.tarea1;
 
+import java.util.Objects;
+
 public class String implements TypesInterface{
     java.lang.String value;
 
     public String(java.lang.String value){
-            this.value= value;
+        this.value= value;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(String.class, value);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof String) {
+            var o= (String) obj;
+            return value.equals(o.value);
         }
+        else{
+            return false;
+        }
+    }
 
     @Override
     public Bool ttBool() {

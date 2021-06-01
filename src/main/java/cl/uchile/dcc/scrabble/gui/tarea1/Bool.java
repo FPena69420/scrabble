@@ -1,11 +1,29 @@
 package cl.uchile.dcc.scrabble.gui.tarea1;
 
+import java.util.Objects;
+
 public class Bool implements TypesInterface{
     boolean value;
 
     Bool(boolean value){
-            this.value= value;
+        this.value= value;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(Bool.class, value);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Bool) {
+            var o= (Bool) obj;
+            return value== o.value;
         }
+        else{
+            return false;
+        }
+    }
 
     @Override
     public Bool ttBool(){

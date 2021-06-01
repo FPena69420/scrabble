@@ -36,6 +36,17 @@ class IntTest {
     }
 
     @Test
+    void testHashcode() {
+        int expected= new Int(47).hashCode();
+        assertEquals(expected, a1.hashCode());
+    }
+
+    @Test
+    void getVal() {
+        assertEquals(47, a1.getval());
+    }
+
+    @Test
     void ttBool() {
         assertEquals(null, a1.ttBool());
     }
@@ -72,9 +83,8 @@ class IntTest {
 
     @Test
     void ttString() {
-        /*String expected= new String("47");
+        String expected= new String("47");
         assertEquals(expected, a1.ttString());
-        need to override hashcode and equals in String */
     }
 
     @Test

@@ -26,6 +26,11 @@ class BinaryTest {
     }
 
     @Test
+    void length() {
+        assertEquals(7, bin.length());
+    }
+
+    @Test
     void suma1(){
         Binary s1= bin.suma1();
         Int i1= new Int(48);
@@ -52,6 +57,13 @@ class BinaryTest {
     }
 
     @Test
+    void testHashCode() {
+        Binary e= new Binary("0101111");
+        int expected= e.hashCode();
+        assertEquals(expected, bin.hashCode());
+    }
+
+    @Test
     void ttBool() {
         assertEquals(null, bin.ttBool());
     }
@@ -73,13 +85,18 @@ class BinaryTest {
 
     @Test
     void ttBinary() {
+        Binary expected= new Binary("0101111");
+        assertEquals(expected, bin.ttBinary());
     }
 
     @Test
     void ttString() {
+        String expected= new String("0101111");
+        assertEquals(expected, bin.ttString());
     }
 
     @Test
     void testToString() {
+        assertEquals("0101111", bin.toString());
     }
 }
