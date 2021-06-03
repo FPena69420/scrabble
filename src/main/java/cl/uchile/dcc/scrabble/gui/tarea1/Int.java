@@ -156,4 +156,10 @@ public class Int extends Num implements TypesInterface, OperationsInterface {
         Int Iops= (Int) ops;
         return new Int(Iops.getval() / this.getval());
     }
+
+    @Override
+    public OperationsInterface SumedByString(OperationsInterface ops) {
+        String Sops= (String) ops;
+        return new String(Sops.toString() + java.lang.String.valueOf(this.getval()));
+    }
 }

@@ -159,4 +159,10 @@ public class Float extends Num implements TypesInterface, OperationsInterface {
         Int Iops= (Int) ops;
         return new Float((float) Iops.getval() / this.getValue());
     }
+
+    @Override
+    public OperationsInterface SumedByString(OperationsInterface ops) {
+        String Sops= (String) ops;
+        return new String(Sops.toString() + java.lang.String.valueOf(this.getValue()));
+    }
 }

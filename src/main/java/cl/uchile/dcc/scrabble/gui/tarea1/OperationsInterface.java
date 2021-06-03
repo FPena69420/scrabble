@@ -18,4 +18,5 @@ public interface OperationsInterface {
     OperationsInterface BinaryDiv(OperationsInterface ops);
     OperationsInterface FloatDiv(OperationsInterface ops);
     OperationsInterface IntDiv(OperationsInterface ops);
+    OperationsInterface SumedByString(OperationsInterface ops);
 }

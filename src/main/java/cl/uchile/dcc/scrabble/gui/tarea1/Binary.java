@@ -299,4 +299,10 @@ public class Binary extends Num implements TypesInterface, LogicTheGathering, Op
         Int Iops= (Int) ops;
         return new Float((float) Iops.getval() / this.ttFloat().getValue()).ttBinary();
     }
+
+    @Override
+    public OperationsInterface SumedByString(OperationsInterface ops) {
+        String Sops= (String) ops;
+        return new String(Sops.toString() + this.getvalue());
+    }
 }
