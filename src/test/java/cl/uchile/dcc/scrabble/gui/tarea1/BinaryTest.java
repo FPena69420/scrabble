@@ -109,6 +109,8 @@ class BinaryTest {
         assertEquals(new Int(-5), bin2.ttInt());
         Binary minuscero= new Int(-0).ttBinary();
         assertEquals(new Int(0), minuscero.ttInt());
+
+        assertNotEquals(new Int(1), one.ttInt());
     }
 
     @Test

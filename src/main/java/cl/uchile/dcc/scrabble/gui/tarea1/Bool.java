@@ -79,6 +79,9 @@ public class Bool implements TypesInterface, LogicTheGathering, OperationsInterf
     }
 
     public static java.lang.String BitAnd(java.lang.String bit1, java.lang.String bit2) {
+        /** Retorna la operación lógica (a and b) con a,b pertenecientes a {0, 1}, en forma de
+         java.lang.String de largo= 1 */
+
         if (bit1.equals("1") && bit2.equals("1")){
             return "1";
         }
@@ -91,6 +94,9 @@ public class Bool implements TypesInterface, LogicTheGathering, OperationsInterf
     }
 
     public static java.lang.String BitOr(java.lang.String bit1, java.lang.String bit2) {
+        /** Retorna la operación lógica (a or b) con a,b pertenecientes a {0, 1}, en forma de
+         java.lang.String de largo= 1 */
+
         if (bit1.equals("0") && bit2.equals("0")){
             return "0";
         }
