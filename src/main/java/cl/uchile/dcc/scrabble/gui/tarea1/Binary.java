@@ -13,6 +13,10 @@ public class Binary extends Num implements TypesInterface, LogicTheGathering, Op
         return this.value.length();
     }
 
+    public java.lang.String getvalue() {
+        return this.value;
+    }
+
     public java.lang.String sign() {
         /** Retorna el primer char de this.value en forma de java.lang.String */
 
@@ -157,5 +161,143 @@ public class Binary extends Num implements TypesInterface, LogicTheGathering, Op
     @Override
     public java.lang.String toString() {
         return java.lang.String.valueOf(this.value);
+    }
+
+    @Override
+    public LogicTheGathering and(LogicTheGathering logic) {
+        return logic.AndedByBinary(this);
+    }
+
+    @Override
+    public LogicTheGathering or(LogicTheGathering logic) {
+        return logic.OredByBinary(this);
+    }
+
+    @Override
+    public LogicTheGathering AndedByBinary(LogicTheGathering logic) {
+        return null;
+    }
+
+    @Override
+    public LogicTheGathering AndedByBool(LogicTheGathering logic) {
+        Bool TFlogic= (Bool) logic;
+        java.lang.String TFvalue= TFlogic.getstringedvalue();
+        java.lang.String in_i1;
+        java.lang.String fstr= "";
+        for (int i= 0; i< this.length(); i++) {
+            in_i1= java.lang.String.valueOf(this.value.charAt(i));
+            fstr+= Bool.BitAnd(in_i1, TFvalue);
+        }
+        return new Binary(fstr);
+    }
+
+    @Override
+    public LogicTheGathering OredByBinary(LogicTheGathering logic) {
+        return null;
+    }
+
+    @Override
+    public LogicTheGathering OredByBool(LogicTheGathering logic) {
+        Bool TFlogic= (Bool) logic;
+        java.lang.String TFvalue= TFlogic.getstringedvalue();
+        java.lang.String in_i1;
+        java.lang.String fstr= "";
+        for (int i= 0; i< this.length(); i++) {
+            in_i1= java.lang.String.valueOf(this.value.charAt(i));
+            fstr+= Bool.BitOr(in_i1, TFvalue);
+        }
+        return new Binary(fstr);
+    }
+
+    @Override
+    public OperationsInterface sum(OperationsInterface ops) {
+        return ops.SumedByBinary(this);
+    }
+
+    @Override
+    public OperationsInterface minus(OperationsInterface ops) {
+        return ops.MinusedByBinary(this);
+    }
+
+    @Override
+    public OperationsInterface mult(OperationsInterface ops) {
+        return ops.MultedByBinary(this);
+    }
+
+    @Override
+    public OperationsInterface dived_by(OperationsInterface ops) {
+        return ops.BinaryDiv(this);
+    }
+
+    @Override
+    public OperationsInterface SumedByBinary(OperationsInterface ops) {
+        Binary Bops= (Binary) ops;
+        return new Float(Bops.ttFloat().getValue() + this.ttFloat().getValue()).ttBinary();
+    }
+
+    @Override
+    public OperationsInterface SumedByFloat(OperationsInterface ops) {
+        Float Fops= (Float) ops;
+        return new Float(Fops.getValue() + this.ttFloat().getValue()).ttBinary();
+    }
+
+    @Override
+    public OperationsInterface SumedByInt(OperationsInterface ops) {
+        Int Iops= (Int) ops;
+        return new Float((float) Iops.getval() + this.ttFloat().getValue()).ttBinary();
+    }
+
+    @Override
+    public OperationsInterface MinusedByBinary(OperationsInterface ops) {
+        Binary Bops= (Binary) ops;
+        return new Float(Bops.ttFloat().getValue() - this.ttFloat().getValue()).ttBinary();
+    }
+
+    @Override
+    public OperationsInterface MinusedByFloat(OperationsInterface ops) {
+        Float Fops= (Float) ops;
+        return new Float(Fops.getValue() - this.ttFloat().getValue()).ttBinary();
+    }
+
+    @Override
+    public OperationsInterface MinusedByInt(OperationsInterface ops) {
+        Int Iops= (Int) ops;
+        return new Float((float) Iops.getval() - this.ttFloat().getValue()).ttBinary();
+    }
+
+    @Override
+    public OperationsInterface MultedByBinary(OperationsInterface ops) {
+        Binary Bops= (Binary) ops;
+        return new Float(Bops.ttFloat().getValue() * this.ttFloat().getValue()).ttBinary();
+    }
+
+    @Override
+    public OperationsInterface MultedByFloat(OperationsInterface ops) {
+        Float Fops= (Float) ops;
+        return new Float(Fops.getValue() * this.ttFloat().getValue()).ttBinary();
+    }
+
+    @Override
+    public OperationsInterface MultedByInt(OperationsInterface ops) {
+        Int Iops= (Int) ops;
+        return new Float((float) Iops.getval() * this.ttFloat().getValue()).ttBinary();
+    }
+
+    @Override
+    public OperationsInterface BinaryDiv(OperationsInterface ops) {
+        Binary Bops= (Binary) ops;
+        return new Float(Bops.ttFloat().getValue() / this.ttFloat().getValue()).ttBinary();
+    }
+
+    @Override
+    public OperationsInterface FloatDiv(OperationsInterface ops) {
+        Float Fops= (Float) ops;
+        return new Float(Fops.getValue() / this.ttFloat().getValue()).ttBinary();
+    }
+
+    @Override
+    public OperationsInterface IntDiv(OperationsInterface ops) {
+        Int Iops= (Int) ops;
+        return new Float((float) Iops.getval() / this.ttFloat().getValue()).ttBinary();
     }
 }

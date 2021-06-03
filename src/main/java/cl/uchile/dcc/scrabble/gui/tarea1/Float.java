@@ -2,7 +2,7 @@ package cl.uchile.dcc.scrabble.gui.tarea1;
 
 import java.util.Objects;
 
-public class Float extends Num implements TypesInterface, OperationsInterface{
+public class Float extends Num implements TypesInterface/*, OperationsInterface */{
     float value;
 
     Float (float value) {

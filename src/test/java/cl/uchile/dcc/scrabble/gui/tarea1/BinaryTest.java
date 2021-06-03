@@ -99,4 +99,41 @@ class BinaryTest {
     void testToString() {
         assertEquals("0101111", bin.toString());
     }
+
+    @Test
+    void and() {
+        Binary expected= new Binary("0101111");
+        assertEquals(expected, bin.and(new Bool(true)));
+
+        expected= new Binary("0000000");
+        assertEquals(expected, bin.and(new Bool(false)));
+
+        assertEquals(null, bin.and(bin2));
+    }
+
+    @Test
+    void or() {
+        Binary expected= new Binary("1111111");
+        assertEquals(expected, bin.or(new Bool(true)));
+
+        expected= new Binary("0101111");
+        assertEquals(expected, bin.or(new Bool(false)));
+
+        assertEquals(null, bin.or(bin2));
+    }
+
+    @Test
+    void sum() {
+        Binary three= new Binary("011");
+        Binary fivepointfive= new Binary("0101.1");
+
+        Binary expected= new Binary("01000.1");
+        assertEquals(expected, fivepointfive.sum(three));
+
+        Binary four= new Binary("0100");
+        expected= new Binary("0111.0");
+        assertEquals(expected, three.sum(four));
+
+        Int Ifour= new Int(4);
+    }
 }

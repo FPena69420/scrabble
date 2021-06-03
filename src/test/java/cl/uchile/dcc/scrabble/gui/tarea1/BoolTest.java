@@ -71,4 +71,30 @@ class BoolTest {
         expected= "false";
         assertEquals(expected, B2.toString());
     }
+
+    @Test
+    void and() {
+        Binary seven= new Binary("0111.0");
+        Binary expected= new Binary("0111.0");
+        assertEquals(expected, B1.and(seven));
+
+        assertEquals(B2, B1.and(B2));
+
+        assertEquals(B1, B1.and(B1));
+
+        assertEquals(B2, B2.and(B2));
+    }
+
+    @Test
+    void or() {
+        Binary seven= new Binary("0111.0");
+        Binary expected= new Binary("1111.1");
+        assertEquals(expected, B1.or(seven));
+
+        assertEquals(B1, B1.or(B2));
+
+        assertEquals(B1, B1.or(B1));
+
+        assertEquals(B2, B2.or(B2));
+    }
 }
