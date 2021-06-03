@@ -8,11 +8,20 @@ import static org.junit.jupiter.api.Assertions.*;
 class FloatTest {
     Float f1;
     Float f2;
+    Float expected;
+    Float one;
+    Float two;
+    Float three;
+    Float eigthpoint375;
 
     @BeforeEach
     void setUp() {
         f1= new Float((float) 47.375);
         f2= new Float((float) -8.375);
+        one= new Float((float) 1);
+        two= new Float((float) 2);
+        three= new Float((float) 3);
+        eigthpoint375= new Float((float) 8.375);
     }
 
     @Test
@@ -77,5 +86,55 @@ class FloatTest {
     void testToString() {
         assertEquals("47.375", f1.toString());
         assertEquals("-8.375", f2.toString());
+    }
+
+    @Test
+    void sum() {
+        Binary Bone= new Binary("01");
+        Float F1= new Float((float) 1);
+        expected= new Float((float) 2);
+        assertEquals(expected, F1.sum(Bone));
+
+        Int I1= new Int(1);
+        assertEquals(expected, F1.sum(I1));
+
+        assertEquals(three, one.sum(two));
+    }
+
+    @Test
+    void minus() {
+        Binary Bone= new Binary("01");
+        expected= new Float((float) 1);
+        assertEquals(expected, two.minus(Bone));
+
+        Int I1= new Int(1);
+        assertEquals(expected, two.minus(I1));
+
+        assertEquals(one, two.minus(one));
+    }
+
+    @Test
+    void mult() {
+        Binary Bthree= new Binary("011");
+        expected= new Float((float) 3);
+        assertEquals(expected, one.mult(Bthree));
+
+        Int I3= new Int(3);
+        assertEquals(expected, one.mult(I3));
+
+        assertEquals(two, two.mult(one));
+    }
+
+    @Test
+    void dived_by() {
+        Binary Bthree= new Binary("011");
+        expected= new Float((float) 1);
+        assertEquals(expected, three.dived_by(Bthree));
+
+        Int I3= new Int(3);
+        assertEquals(expected, three.dived_by(I3));
+
+        Float mone= new Float((float) -1);
+        assertEquals(eigthpoint375, f2.dived_by(mone));
     }
 }

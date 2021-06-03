@@ -2,7 +2,7 @@ package cl.uchile.dcc.scrabble.gui.tarea1;
 
 import java.util.Objects;
 
-public class Float extends Num implements TypesInterface/*, OperationsInterface */{
+public class Float extends Num implements TypesInterface, OperationsInterface {
     float value;
 
     Float (float value) {
@@ -68,4 +68,95 @@ public class Float extends Num implements TypesInterface/*, OperationsInterface 
     }
 
 
+    @Override
+    public OperationsInterface sum(OperationsInterface ops) {
+        return ops.SumedByFloat(this);
+    }
+
+    @Override
+    public OperationsInterface minus(OperationsInterface ops) {
+        return ops.MinusedByFloat(this);
+    }
+
+    @Override
+    public OperationsInterface mult(OperationsInterface ops) {
+        return ops.MultedByFloat(this);
+    }
+
+    @Override
+    public OperationsInterface dived_by(OperationsInterface ops) {
+        return ops.FloatDiv(this);
+    }
+
+    @Override
+    public OperationsInterface SumedByBinary(OperationsInterface ops) {
+        Binary Bops= (Binary) ops;
+        return new Float(Bops.ttFloat().getValue() + this.getValue());
+    }
+
+    @Override
+    public OperationsInterface SumedByFloat(OperationsInterface ops) {
+        Float Fops= (Float) ops;
+        return new Float(Fops.getValue() + this.getValue());
+    }
+
+    @Override
+    public OperationsInterface SumedByInt(OperationsInterface ops) {
+        Int Iops= (Int) ops;
+        return new Float((float) Iops.getval() + this.getValue());
+    }
+
+    @Override
+    public OperationsInterface MinusedByBinary(OperationsInterface ops) {
+        Binary Bops= (Binary) ops;
+        return new Float(Bops.ttFloat().getValue() - this.getValue());
+    }
+
+    @Override
+    public OperationsInterface MinusedByFloat(OperationsInterface ops) {
+        Float Fops= (Float) ops;
+        return new Float(Fops.getValue() - this.getValue());
+    }
+
+    @Override
+    public OperationsInterface MinusedByInt(OperationsInterface ops) {
+        Int Iops= (Int) ops;
+        return new Float((float) Iops.getval() - this.getValue());
+    }
+
+    @Override
+    public OperationsInterface MultedByBinary(OperationsInterface ops) {
+        Binary Bops= (Binary) ops;
+        return new Float(Bops.ttFloat().getValue() * this.getValue());
+    }
+
+    @Override
+    public OperationsInterface MultedByFloat(OperationsInterface ops) {
+        Float Fops= (Float) ops;
+        return new Float(Fops.getValue() * this.getValue());
+    }
+
+    @Override
+    public OperationsInterface MultedByInt(OperationsInterface ops) {
+        Int Iops= (Int) ops;
+        return new Float((float) Iops.getval() * this.getValue());
+    }
+
+    @Override
+    public OperationsInterface BinaryDiv(OperationsInterface ops) {
+        Binary Bops= (Binary) ops;
+        return new Float(Bops.ttFloat().getValue() / this.getValue());
+    }
+
+    @Override
+    public OperationsInterface FloatDiv(OperationsInterface ops) {
+        Float Fops= (Float) ops;
+        return new Float(Fops.getValue() / this.getValue());
+    }
+
+    @Override
+    public OperationsInterface IntDiv(OperationsInterface ops) {
+        Int Iops= (Int) ops;
+        return new Float((float) Iops.getval() / this.getValue());
+    }
 }

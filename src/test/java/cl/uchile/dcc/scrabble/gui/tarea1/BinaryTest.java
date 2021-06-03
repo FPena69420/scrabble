@@ -9,10 +9,32 @@ class BinaryTest {
     Binary bin;
     Binary bin2;
 
+    Binary one;
+    Binary two;
+    Binary three;
+    Binary four;
+    Binary five;
+    Binary six;
+    Binary seven;
+    Binary eight;
+    Binary nine;
+    Binary ten;
+
     @BeforeEach
     void SetUp(){
         bin= new Binary("0101111");
         bin2= new Binary("1011");
+
+        one= new Binary("01.0");
+        two= new Binary("010.0");
+        three= new Binary("011.0");
+        four= new Binary("0100.0");
+        five= new Binary("0101.0");
+        six= new Binary("0110.0");
+        seven= new Binary("0111.0");
+        eight= new Binary("01000.0");
+        nine= new Binary("01001.0");
+        ten= new Binary("01010.0");
 
     }
 
@@ -61,6 +83,12 @@ class BinaryTest {
         Binary e= new Binary("0101111");
         int expected= e.hashCode();
         assertEquals(expected, bin.hashCode());
+    }
+
+    @Test
+    void testEquals() {
+        Binary expected= new Binary("01000.0");
+        assertEquals(expected, eight);
     }
 
     @Test
@@ -124,16 +152,67 @@ class BinaryTest {
 
     @Test
     void sum() {
-        Binary three= new Binary("011");
         Binary fivepointfive= new Binary("0101.1");
 
         Binary expected= new Binary("01000.1");
         assertEquals(expected, fivepointfive.sum(three));
 
-        Binary four= new Binary("0100");
         expected= new Binary("0111.0");
         assertEquals(expected, three.sum(four));
 
         Int Ifour= new Int(4);
+        assertEquals(eight, four.sum(Ifour));
+
+        Float F7= new Float(7);
+        Float expected2= new Float((float) 10);
+        assertEquals(expected2, three.sum(F7));
+    }
+
+    @Test
+    void minus() {
+        Binary expected= new Binary("010.0");
+        assertEquals(expected, six.minus(four));
+
+        Int Imfour= new Int(-4);
+        Binary m2= new Binary("110");
+        assertEquals(expected, m2.minus(Imfour));
+
+        Float expected2= new Float((float) 6);
+        Float F3= new Float((float) 3);
+        assertEquals(expected2, nine.minus(F3));
+    }
+
+    @Test
+    void mult() {
+        Binary threepoint125= new Binary("011.001");
+        Binary expected= new Binary("0110.01");
+
+        assertEquals(expected, threepoint125.mult(two));
+
+        Binary m3point125= new Binary("101.001");
+        expected= new Binary("1010.01");
+        assertEquals(expected, m3point125.mult(two));
+
+        Int Im3= new Int(-3);
+        expected= new Float((float) -6).ttBinary();
+        assertEquals(expected, two.mult(Im3));
+
+        Float Fm3= new Float((float) -3);
+        Float expected2= new Float((float) -6);
+        assertEquals(expected2, two.mult(Fm3));
+    }
+
+    @Test
+    void dived_by() {
+        Binary m6= new Binary("1010");
+        Binary expected= new Binary("110.0");
+        assertEquals(expected, m6.dived_by(three));
+
+        Int I3= new Int(3);
+        assertEquals(three, nine.dived_by(I3));
+
+        Float F3= new Float((float) 3);
+        Float expected2= new Float((float) 3);
+        assertEquals(expected2, nine.dived_by(F3));
     }
 }

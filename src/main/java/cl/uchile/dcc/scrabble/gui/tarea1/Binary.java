@@ -134,7 +134,6 @@ public class Binary extends Num implements TypesInterface, LogicTheGathering, Op
         float absdecpart= BinaryToDecimal(decimalpart);
         if (floatintpart< 0){
             complete= -(Math.abs(floatintpart) + absdecpart);
-            System.out.println("complete: " + complete);
         }
         else{
             complete= floatintpart + absdecpart;
@@ -238,7 +237,7 @@ public class Binary extends Num implements TypesInterface, LogicTheGathering, Op
     @Override
     public OperationsInterface SumedByFloat(OperationsInterface ops) {
         Float Fops= (Float) ops;
-        return new Float(Fops.getValue() + this.ttFloat().getValue()).ttBinary();
+        return new Float(Fops.getValue() + this.ttFloat().getValue());
     }
 
     @Override
@@ -256,7 +255,7 @@ public class Binary extends Num implements TypesInterface, LogicTheGathering, Op
     @Override
     public OperationsInterface MinusedByFloat(OperationsInterface ops) {
         Float Fops= (Float) ops;
-        return new Float(Fops.getValue() - this.ttFloat().getValue()).ttBinary();
+        return new Float(Fops.getValue() - this.ttFloat().getValue());
     }
 
     @Override
@@ -274,7 +273,7 @@ public class Binary extends Num implements TypesInterface, LogicTheGathering, Op
     @Override
     public OperationsInterface MultedByFloat(OperationsInterface ops) {
         Float Fops= (Float) ops;
-        return new Float(Fops.getValue() * this.ttFloat().getValue()).ttBinary();
+        return new Float(Fops.getValue() * this.ttFloat().getValue());
     }
 
     @Override
@@ -292,7 +291,7 @@ public class Binary extends Num implements TypesInterface, LogicTheGathering, Op
     @Override
     public OperationsInterface FloatDiv(OperationsInterface ops) {
         Float Fops= (Float) ops;
-        return new Float(Fops.getValue() / this.ttFloat().getValue()).ttBinary();
+        return new Float(Fops.getValue() / this.ttFloat().getValue());
     }
 
     @Override
