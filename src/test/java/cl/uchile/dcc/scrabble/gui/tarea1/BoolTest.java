@@ -8,11 +8,20 @@ import static org.junit.jupiter.api.Assertions.*;
 class BoolTest {
     Bool B1;
     Bool B2;
+    String S1;
+    Bool TF1;
+    Float F1;
+    Int I1;
+    String expected;
 
     @BeforeEach
     void setUp() {
         B1= new Bool(true);
         B2= new Bool(false);
+        S1= new String("John Salchichon");
+        TF1= new Bool(false);
+        F1= new Float((float) 32.5);
+        I1= new Int(28);
     }
 
     @Test
@@ -96,5 +105,13 @@ class BoolTest {
         assertEquals(B1, B1.or(B1));
 
         assertEquals(B2, B2.or(B2));
+    }
+
+    @Test
+    void operations() {
+        assertEquals(null, B1.sum(TF1));
+        assertEquals(null, B1.minus(F1));
+        assertEquals(null, B1.mult(I1));
+        assertEquals(null, B1.dived_by(B1));
     }
 }
