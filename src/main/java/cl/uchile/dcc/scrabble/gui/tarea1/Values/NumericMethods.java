@@ -1,8 +1,8 @@
-package cl.uchile.dcc.scrabble.gui.tarea1;
+package cl.uchile.dcc.scrabble.gui.tarea1.Values;
 
-public abstract class Num {
+public abstract class NumericMethods {
 
-    Binary PosIntToBinary(int num){
+    static public Binary PosIntToBinary(int num){
         /** Toma un int num, num>= 0, y retorna un Binary que representa a num en binario, con un 0
          en frente */
 
@@ -20,7 +20,7 @@ public abstract class Num {
         return new Binary(retstring);
     }
 
-    Binary NegIntToBinary(int num) {
+    static public Binary NegIntToBinary(int num) {
         /** Toma un int num, 0>= num, y retorna la representación en binario del número de acuerdo a
          PosIntToBinary() y negative() en Binary.java */
 
@@ -29,7 +29,7 @@ public abstract class Num {
         return negative;
     }
 
-    java.lang.String DecimalToBinary (float decimal){
+    static public java.lang.String DecimalToBinary (float decimal){
         /** Toma un float x, 0.0<= x< 1.0, y retorna un java.lang. String de la forma ".{some Binary}",
          donde {some Binary} es la representación en binario de x (sin el inicio "0."), o ".0" si x== 0.0 */
 
@@ -50,7 +50,7 @@ public abstract class Num {
         return onestring;
     }
 
-    java.lang.String reverse(java.lang.String string) {
+    static public java.lang.String reverse(java.lang.String string) {
         /** Toma un java.lang.String y retorna un java.lang.String tal que las posiciones de los
          elementos han sido invertidas */
 
@@ -63,7 +63,7 @@ public abstract class Num {
     }
 
     /* Dados por enunciado */
-    public int BinaryToInt(java.lang.String binary) {
+    static public int BinaryToInt(java.lang.String binary) {
         if (bitToInt(binary.charAt(0)) == 0) {
             return PositiveBinaryToInt(binary);
         } else {
@@ -71,7 +71,7 @@ public abstract class Num {
         }
     }
 
-    private int NegativeBinaryToInt(java.lang.String binary) {
+    static private int NegativeBinaryToInt(java.lang.String binary) {
         int n = binary.length() - 1;
         int w = -bitToInt(binary.charAt(0)) * (int) Math.pow(2, n);
         for (int i = n, j = 0; i > 0; i--, j++) {
@@ -80,7 +80,7 @@ public abstract class Num {
         return w;
     }
 
-    private int PositiveBinaryToInt(java.lang.String binary) {
+    static private int PositiveBinaryToInt(java.lang.String binary) {
         int w = 0;
         for (int i = binary.length() - 1, j = 0; i > 0; i--, j++) {
             w += (int) Math.pow(2, j) * bitToInt(binary.charAt(i));
@@ -88,13 +88,13 @@ public abstract class Num {
         return w;
     }
 
-    private int bitToInt(char bit) {
+    static private int bitToInt(char bit) {
         return bit == '0' ? 0 : 1;
     }
 
     /* fin de dados por enunciado */
 
-    float BinaryToDecimal(java.lang.String decimal){
+    static public float BinaryToDecimal(java.lang.String decimal){
         /** Toma un String de la forma ".{some String}" tal que {some String} se compone solo de valores numéricos
          del 0 al 1 y retorna un float que representa el valor decimal del binario 0.{some String} */
 

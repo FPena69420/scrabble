@@ -1,5 +1,8 @@
-package cl.uchile.dcc.scrabble.gui.tarea1;
+package cl.uchile.dcc.scrabble.gui.tarea1.Values;
 
+import cl.uchile.dcc.scrabble.gui.tarea1.Values.*;
+import cl.uchile.dcc.scrabble.gui.tarea1.Values.Float;
+import cl.uchile.dcc.scrabble.gui.tarea1.Values.String;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -99,7 +102,7 @@ class StringTest {
 
     @Test
     void minus() {
-        assertEquals(null, S1.minus(F1));
+        assertEquals(null, S1.substract(F1));
     }
 
     @Test

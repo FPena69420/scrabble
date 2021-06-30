@@ -1,20 +1,21 @@
-package cl.uchile.dcc.scrabble.gui.tarea1;
+package cl.uchile.dcc.scrabble.gui.tarea1.Values;
+
+import cl.uchile.dcc.scrabble.gui.tarea1.Interfaces.*;
 
 import java.util.Objects;
 
-public class Bool implements TypesInterface, LogicTheGathering, OperationsInterface{
-    boolean value;
+public class Bool extends Value implements TypesInterface, LogicTheGathering, OperationsInterface {
 
-    Bool(boolean value){
-        this.value= value;
+    public Bool(boolean value){
+        super(value);
     }
 
-    public boolean getvalue() {
-        return this.value;
+    public boolean getValue() {
+        return (boolean) this.parseValue();
     }
 
     public java.lang.String getstringedvalue() {
-        if (this.value== false) {
+        if (this.getValue()== false) {
             return "0";
         }
 
@@ -34,14 +35,14 @@ public class Bool implements TypesInterface, LogicTheGathering, OperationsInterf
 
     @Override
     public int hashCode() {
-        return Objects.hash(Bool.class, value);
+        return Objects.hash(Bool.class, getValue());
     }
 
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Bool) {
             var o= (Bool) obj;
-            return value== o.value;
+            return this.getValue()== o.getValue();
         }
         else{
             return false;
@@ -70,12 +71,12 @@ public class Bool implements TypesInterface, LogicTheGathering, OperationsInterf
 
     @Override
     public String ttString() {
-        return new String(java.lang.String.valueOf(this.value));
+        return new String(java.lang.String.valueOf(this.getValue()));
     }
 
     @Override
     public java.lang.String toString() {
-        return java.lang.String.valueOf(this.value);
+        return java.lang.String.valueOf(this.getValue());
     }
 
     public static java.lang.String BitAnd(java.lang.String bit1, java.lang.String bit2) {
@@ -122,7 +123,7 @@ public class Bool implements TypesInterface, LogicTheGathering, OperationsInterf
     @Override
     public LogicTheGathering AndedByBinary(LogicTheGathering logic) {
         Binary Blogic= (Binary) logic;
-        java.lang.String Bvalue= Blogic.getvalue();
+        java.lang.String Bvalue= Blogic.getValue();
         java.lang.String in_i1;
         java.lang.String tocompare= this.getstringedvalue();
         java.lang.String fstr= "";
@@ -144,7 +145,7 @@ public class Bool implements TypesInterface, LogicTheGathering, OperationsInterf
     @Override
     public LogicTheGathering OredByBinary(LogicTheGathering logic) {
         Binary Blogic= (Binary) logic;
-        java.lang.String Bvalue= Blogic.getvalue();
+        java.lang.String Bvalue= Blogic.getValue();
         java.lang.String in_i1;
         java.lang.String fstr= "";
         for (int i= 0; i< Bvalue.length(); i++) {
@@ -168,7 +169,7 @@ public class Bool implements TypesInterface, LogicTheGathering, OperationsInterf
     }
 
     @Override
-    public OperationsInterface minus(OperationsInterface ops) {
+    public OperationsInterface substract(OperationsInterface ops) {
         return null;
     }
 
@@ -198,17 +199,17 @@ public class Bool implements TypesInterface, LogicTheGathering, OperationsInterf
     }
 
     @Override
-    public OperationsInterface MinusedByBinary(OperationsInterface ops) {
+    public OperationsInterface SubstractedByBinary(OperationsInterface ops) {
         return null;
     }
 
     @Override
-    public OperationsInterface MinusedByFloat(OperationsInterface ops) {
+    public OperationsInterface SubstractedByFloat(OperationsInterface ops) {
         return null;
     }
 
     @Override
-    public OperationsInterface MinusedByInt(OperationsInterface ops) {
+    public OperationsInterface SubstractedByInt(OperationsInterface ops) {
         return null;
     }
 
@@ -245,6 +246,58 @@ public class Bool implements TypesInterface, LogicTheGathering, OperationsInterf
     @Override
     public OperationsInterface SumedByString(OperationsInterface ops) {
         String Sops= (String) ops;
-        return new String(Sops.toString() + this.getvalue());
+        return new String(Sops.toString() + this.getValue());
+    }
+
+    @Override
+    public Value times(Value second){
+        try{
+            OperationsInterface OpsSecond= (OperationsInterface) second;
+            System.out.println("cast passed");
+            return (Value) this.mult(OpsSecond);
+        }
+        catch (Exception e) {
+            System.out.println("Hubo un error al tratar de sumar estos valores");
+        }
+        return null;
+    }
+
+    @Override
+    public Value over(Value second) {
+        try{
+            OperationsInterface OpsSecond= (OperationsInterface) second;
+            System.out.println("cast passed");
+            return (Value) this.dived_by(OpsSecond);
+        }
+        catch (Exception e) {
+            System.out.println("Hubo un error al tratar de sumar estos valores");
+        }
+        return null;
+    }
+
+    @Override
+    public Value minus(Value second) {
+        try{
+            OperationsInterface OpsSecond= (OperationsInterface) second;
+            System.out.println("cast passed");
+            return (Value) this.substract(OpsSecond);
+        }
+        catch (Exception e) {
+            System.out.println("Hubo un error al tratar de sumar estos valores");
+        }
+        return null;
+    }
+
+    @Override
+    public Value plus(Value second) {
+        try{
+            OperationsInterface OpsSecond= (OperationsInterface) second;
+            System.out.println("cast passed");
+            return (Value) this.sum(OpsSecond);
+        }
+        catch (Exception e) {
+            System.out.println("Hubo un error al tratar de sumar estos valores");
+        }
+        return null;
     }
 }

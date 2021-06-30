@@ -1,5 +1,9 @@
-package cl.uchile.dcc.scrabble.gui.tarea1;
+package cl.uchile.dcc.scrabble.gui.tarea1.Values;
 
+import cl.uchile.dcc.scrabble.gui.tarea1.Values.Binary;
+import cl.uchile.dcc.scrabble.gui.tarea1.Values.Float;
+import cl.uchile.dcc.scrabble.gui.tarea1.Values.Int;
+import cl.uchile.dcc.scrabble.gui.tarea1.Values.String;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -40,7 +44,7 @@ class IntTest {
     @Test
     void getval() {
         int expected= 47;
-        assertEquals(expected, a1.getval());
+        assertEquals(expected, a1.getValue());
     }
 
     @Test
@@ -51,7 +55,7 @@ class IntTest {
 
     @Test
     void getVal() {
-        assertEquals(47, a1.getval());
+        assertEquals(47, a1.getValue());
     }
 
     @Test
@@ -120,13 +124,13 @@ class IntTest {
     void minus() {
         Binary Bone= new Binary("01");
         Binary expected= new Binary("010.0");
-        assertEquals(expected, three.minus(Bone));
+        assertEquals(expected, three.substract(Bone));
 
         Float F1= new Float((float) 1);
         Float expected2= new Float((float) 2);
-        assertEquals(expected2, three.minus(F1));
+        assertEquals(expected2, three.substract(F1));
 
-        assertEquals(two, four.minus(two));
+        assertEquals(two, four.substract(two));
     }
 
     @Test

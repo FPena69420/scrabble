@@ -1,5 +1,8 @@
-package cl.uchile.dcc.scrabble.gui.tarea1;
+package cl.uchile.dcc.scrabble.gui.tarea1.Values;
 
+import cl.uchile.dcc.scrabble.gui.tarea1.Values.*;
+import cl.uchile.dcc.scrabble.gui.tarea1.Values.Float;
+import cl.uchile.dcc.scrabble.gui.tarea1.Values.String;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -110,7 +113,7 @@ class BoolTest {
     @Test
     void operations() {
         assertEquals(null, B1.sum(TF1));
-        assertEquals(null, B1.minus(F1));
+        assertEquals(null, B1.substract(F1));
         assertEquals(null, B1.mult(I1));
         assertEquals(null, B1.dived_by(B1));
     }

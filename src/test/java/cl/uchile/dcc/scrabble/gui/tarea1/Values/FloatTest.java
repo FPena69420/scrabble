@@ -1,5 +1,9 @@
-package cl.uchile.dcc.scrabble.gui.tarea1;
+package cl.uchile.dcc.scrabble.gui.tarea1.Values;
 
+import cl.uchile.dcc.scrabble.gui.tarea1.Values.Binary;
+import cl.uchile.dcc.scrabble.gui.tarea1.Values.Float;
+import cl.uchile.dcc.scrabble.gui.tarea1.Values.Int;
+import cl.uchile.dcc.scrabble.gui.tarea1.Values.String;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -105,12 +109,12 @@ class FloatTest {
     void minus() {
         Binary Bone= new Binary("01");
         expected= new Float((float) 1);
-        assertEquals(expected, two.minus(Bone));
+        assertEquals(expected, two.substract(Bone));
 
         Int I1= new Int(1);
-        assertEquals(expected, two.minus(I1));
+        assertEquals(expected, two.substract(I1));
 
-        assertEquals(one, two.minus(one));
+        assertEquals(one, two.substract(one));
     }
 
     @Test

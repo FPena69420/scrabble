@@ -1,5 +1,8 @@
-package cl.uchile.dcc.scrabble.gui.tarea1;
+package cl.uchile.dcc.scrabble.gui.tarea1.Values;
 
+import cl.uchile.dcc.scrabble.gui.tarea1.Values.*;
+import cl.uchile.dcc.scrabble.gui.tarea1.Values.Float;
+import cl.uchile.dcc.scrabble.gui.tarea1.Values.String;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -173,15 +176,15 @@ class BinaryTest {
     @Test
     void minus() {
         Binary expected= new Binary("010.0");
-        assertEquals(expected, six.minus(four));
+        assertEquals(expected, six.substract(four));
 
         Int Imfour= new Int(-4);
         Binary m2= new Binary("110");
-        assertEquals(expected, m2.minus(Imfour));
+        assertEquals(expected, m2.substract(Imfour));
 
         Float expected2= new Float((float) 6);
         Float F3= new Float((float) 3);
-        assertEquals(expected2, nine.minus(F3));
+        assertEquals(expected2, nine.substract(F3));
     }
 
     @Test

@@ -1,4 +1,4 @@
-package cl.uchile.dcc.scrabble.gui.tarea1;
+package cl.uchile.dcc.scrabble.gui.tarea1.Interfaces;
 
 public interface LogicTheGathering {
     LogicTheGathering and(LogicTheGathering logic);

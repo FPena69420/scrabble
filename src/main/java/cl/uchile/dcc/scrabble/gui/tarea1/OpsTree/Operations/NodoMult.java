@@ -1,18 +1,25 @@
 package cl.uchile.dcc.scrabble.gui.tarea1.OpsTree.Operations;
 
-import cl.uchile.dcc.scrabble.gui.tarea1.OpsTree.Nodo;
-import cl.uchile.dcc.scrabble.gui.tarea1.OpsTree.NodeTypes.NodoOp;
+import cl.uchile.dcc.scrabble.gui.tarea1.OpsTree.NodeTypes.*;
+import cl.uchile.dcc.scrabble.gui.tarea1.Values.Value;
 
 
-
-public class NodoMult extends NodoOp {
+public class NodoMult extends NodoBinario{
 
     public NodoMult (Nodo izq, Nodo der) {
         super(izq, "*", der);
     }
 
     @Override
-    public double eval() {
-        return this.getIzq().eval() * this.getDer().eval();
+    public Nodo eval() {
+        try {
+            Value IzqEval= (Value) getIzq().eval().getInfo();
+            Value DerEval= (Value) getDer().eval().getInfo();
+            return new NodedValue(IzqEval.times(DerEval));
+        }
+        catch (Exception e) {
+            System.out.println("Hubo un error tratando de sumar");
+        }
+        return null;
     }
 }
