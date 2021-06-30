@@ -1,17 +1,17 @@
-package cl.uchile.dcc.scrabble.gui.tarea1;
+package cl.uchile.dcc.scrabble.gui.tarea1.Interfaces;
 
 public interface OperationsInterface {
     OperationsInterface sum(OperationsInterface ops);
-    OperationsInterface minus(OperationsInterface ops);
+    OperationsInterface substract(OperationsInterface ops);
     OperationsInterface mult(OperationsInterface ops);
     OperationsInterface dived_by(OperationsInterface ops);
 
     OperationsInterface SumedByBinary(OperationsInterface ops);
     OperationsInterface SumedByFloat(OperationsInterface ops);
     OperationsInterface SumedByInt(OperationsInterface ops);
-    OperationsInterface MinusedByBinary(OperationsInterface ops);
-    OperationsInterface MinusedByFloat(OperationsInterface ops);
-    OperationsInterface MinusedByInt(OperationsInterface ops);
+    OperationsInterface SubstractedByBinary(OperationsInterface ops);
+    OperationsInterface SubstractedByFloat(OperationsInterface ops);
+    OperationsInterface SubstractedByInt(OperationsInterface ops);
     OperationsInterface MultedByBinary(OperationsInterface ops);
     OperationsInterface MultedByFloat(OperationsInterface ops);
     OperationsInterface MultedByInt(OperationsInterface ops);

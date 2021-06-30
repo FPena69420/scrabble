@@ -1,33 +1,53 @@
-package cl.uchile.dcc.scrabble.gui.tarea1;
+package cl.uchile.dcc.scrabble.gui.tarea1.Values;
+
+import cl.uchile.dcc.scrabble.gui.tarea1.Interfaces.*;
+import static cl.uchile.dcc.scrabble.gui.tarea1.Values.NumericMethods.*;
 
 import java.util.Objects;
 
-public class Binary extends Num implements TypesInterface, LogicTheGathering, OperationsInterface{
-    java.lang.String value;
+
+
+public class Binary extends Value implements TypesInterface, LogicTheGathering, OperationsInterface {
 
     public Binary(java.lang.String value){
-        this.value=value;
+        super(value);
+    }
+
+    public java.lang.String getValue() {
+        return (java.lang.String) this.parseValue();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(Binary.class, this.getValue());
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        if (obj instanceof Binary) {
+            var o= (Binary) obj;
+            return this.getValue().equals(o.getValue());
+        }
+        else{
+            return false;
+        }
     }
 
     public int length(){
-        return this.value.length();
-    }
-
-    public java.lang.String getvalue() {
-        return this.value;
+        return this.getValue().length();
     }
 
     public java.lang.String sign() {
         /** Retorna el primer char de this.value en forma de java.lang.String */
 
-        return java.lang.String.valueOf(this.value.charAt(0));
+        return java.lang.String.valueOf(this.getValue().charAt(0));
     }
 
     public Binary flip(){
         /** Retorna un nuevo Binary tal que cada valor individual de this.value ha sido negado por
          negación lógica */
 
-        java.lang.String toflip = this.value;
+        java.lang.String toflip = this.getValue();
         int length= toflip.length();
         java.lang.String retstring= "";
         for (int i= 0; i< length; i++){
@@ -48,7 +68,7 @@ public class Binary extends Num implements TypesInterface, LogicTheGathering, Op
 
         java.lang.String tosum1to;
         if (!this.toString().equals("0")){
-            if (java.lang.String.valueOf(this.value.charAt(0)).equals("1") && java.lang.String.valueOf(this.value.charAt(1)).equals("1")){
+            if (java.lang.String.valueOf(this.getValue().charAt(0)).equals("1") && java.lang.String.valueOf(this.getValue().charAt(1)).equals("1")){
                 tosum1to= this.toString().substring(1);
             }
             else {
@@ -59,7 +79,6 @@ public class Binary extends Num implements TypesInterface, LogicTheGathering, Op
             tosum1to= this.toString();
         }
         int sumlength= tosum1to.length();
-        java.lang.String sign= this.sign();
         java.lang.String retstring= "";
         int i=1;
         for (; i<= sumlength; i++){
@@ -90,22 +109,6 @@ public class Binary extends Num implements TypesInterface, LogicTheGathering, Op
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(Binary.class, value);
-    }
-
-    @Override
-    public boolean equals(Object obj){
-        if (obj instanceof Binary) {
-            var o= (Binary) obj;
-            return value.equals(o.value);
-        }
-        else{
-            return false;
-        }
-    }
-
-    @Override
     public Bool ttBool() {
         return null;
     }
@@ -113,18 +116,18 @@ public class Binary extends Num implements TypesInterface, LogicTheGathering, Op
     @Override
     public Float ttFloat() {
         int pointpos= -1;
-        int length= this.value.length();
-        java.lang.String binaryfloat= this.value;
+        int length= this.getValue().length();
+        java.lang.String binaryfloat= this.getValue();
         java.lang.String decimalpart;
         java.lang.String intpart;
         float complete;
         for (int i= 0; i<length; i++) {
-            if (java.lang.String.valueOf(this.value.charAt(i)).equals(".")){
+            if (java.lang.String.valueOf(this.getValue().charAt(i)).equals(".")){
                 pointpos= i;
             }
         }
         if (pointpos== -1){
-            return new Float((float) BinaryToInt(this.value));
+            return new Float((float) BinaryToInt(this.getValue()));
         }
         else{
             intpart= binaryfloat.substring(0,pointpos);
@@ -144,7 +147,7 @@ public class Binary extends Num implements TypesInterface, LogicTheGathering, Op
 
     @Override
     public Int ttInt() {
-        return new Int(BinaryToInt(this.value));
+        return new Int(BinaryToInt(this.getValue()));
     }
 
     @Override
@@ -154,12 +157,12 @@ public class Binary extends Num implements TypesInterface, LogicTheGathering, Op
 
     @Override
     public String ttString() {
-        return new String(this.value);
+        return new String(this.getValue());
     }
 
     @Override
     public java.lang.String toString() {
-        return java.lang.String.valueOf(this.value);
+        return java.lang.String.valueOf(this.getValue());
     }
 
     @Override
@@ -184,7 +187,7 @@ public class Binary extends Num implements TypesInterface, LogicTheGathering, Op
         java.lang.String in_i1;
         java.lang.String fstr= "";
         for (int i= 0; i< this.length(); i++) {
-            in_i1= java.lang.String.valueOf(this.value.charAt(i));
+            in_i1= java.lang.String.valueOf(this.getValue().charAt(i));
             fstr+= Bool.BitAnd(in_i1, TFvalue);
         }
         return new Binary(fstr);
@@ -202,7 +205,7 @@ public class Binary extends Num implements TypesInterface, LogicTheGathering, Op
         java.lang.String in_i1;
         java.lang.String fstr= "";
         for (int i= 0; i< this.length(); i++) {
-            in_i1= java.lang.String.valueOf(this.value.charAt(i));
+            in_i1= java.lang.String.valueOf(this.getValue().charAt(i));
             fstr+= Bool.BitOr(in_i1, TFvalue);
         }
         return new Binary(fstr);
@@ -214,8 +217,8 @@ public class Binary extends Num implements TypesInterface, LogicTheGathering, Op
     }
 
     @Override
-    public OperationsInterface minus(OperationsInterface ops) {
-        return ops.MinusedByBinary(this);
+    public OperationsInterface substract(OperationsInterface ops) {
+        return ops.SubstractedByBinary(this);
     }
 
     @Override
@@ -243,25 +246,25 @@ public class Binary extends Num implements TypesInterface, LogicTheGathering, Op
     @Override
     public OperationsInterface SumedByInt(OperationsInterface ops) {
         Int Iops= (Int) ops;
-        return new Float((float) Iops.getval() + this.ttFloat().getValue()).ttBinary();
+        return new Float((float) Iops.getValue() + this.ttFloat().getValue()).ttBinary();
     }
 
     @Override
-    public OperationsInterface MinusedByBinary(OperationsInterface ops) {
+    public OperationsInterface SubstractedByBinary(OperationsInterface ops) {
         Binary Bops= (Binary) ops;
         return new Float(Bops.ttFloat().getValue() - this.ttFloat().getValue()).ttBinary();
     }
 
     @Override
-    public OperationsInterface MinusedByFloat(OperationsInterface ops) {
+    public OperationsInterface SubstractedByFloat(OperationsInterface ops) {
         Float Fops= (Float) ops;
         return new Float(Fops.getValue() - this.ttFloat().getValue());
     }
 
     @Override
-    public OperationsInterface MinusedByInt(OperationsInterface ops) {
+    public OperationsInterface SubstractedByInt(OperationsInterface ops) {
         Int Iops= (Int) ops;
-        return new Float((float) Iops.getval() - this.ttFloat().getValue()).ttBinary();
+        return new Float((float) Iops.getValue() - this.ttFloat().getValue()).ttBinary();
     }
 
     @Override
@@ -279,7 +282,7 @@ public class Binary extends Num implements TypesInterface, LogicTheGathering, Op
     @Override
     public OperationsInterface MultedByInt(OperationsInterface ops) {
         Int Iops= (Int) ops;
-        return new Float((float) Iops.getval() * this.ttFloat().getValue()).ttBinary();
+        return new Float((float) Iops.getValue() * this.ttFloat().getValue()).ttBinary();
     }
 
     @Override
@@ -297,12 +300,66 @@ public class Binary extends Num implements TypesInterface, LogicTheGathering, Op
     @Override
     public OperationsInterface IntDiv(OperationsInterface ops) {
         Int Iops= (Int) ops;
-        return new Float((float) Iops.getval() / this.ttFloat().getValue()).ttBinary();
+        return new Float((float) Iops.getValue() / this.ttFloat().getValue()).ttBinary();
     }
 
     @Override
     public OperationsInterface SumedByString(OperationsInterface ops) {
         String Sops= (String) ops;
-        return new String(Sops.toString() + this.getvalue());
+        return new String(Sops.toString() + this.getValue());
     }
+
+    @Override
+    public Value times(Value second){
+        try{
+            OperationsInterface OpsSecond= (OperationsInterface) second;
+            System.out.println("cast passed");
+            return (Value) this.mult(OpsSecond);
+        }
+        catch (Exception e) {
+            System.out.println("Hubo un error al tratar de sumar estos valores");
+        }
+        return null;
+    }
+
+    @Override
+    public Value over(Value second) {
+        try{
+            OperationsInterface OpsSecond= (OperationsInterface) second;
+            System.out.println("cast passed");
+            return (Value) this.dived_by(OpsSecond);
+        }
+        catch (Exception e) {
+            System.out.println("Hubo un error al tratar de sumar estos valores");
+        }
+        return null;
+    }
+
+    @Override
+    public Value minus(Value second) {
+        try{
+            OperationsInterface OpsSecond= (OperationsInterface) second;
+            System.out.println("cast passed");
+            return (Value) this.substract(OpsSecond);
+        }
+        catch (Exception e) {
+            System.out.println("Hubo un error al tratar de sumar estos valores");
+        }
+        return null;
+    }
+
+    @Override
+    public Value plus(Value second) {
+        try{
+            OperationsInterface OpsSecond= (OperationsInterface) second;
+            System.out.println("cast passed");
+            return (Value) this.sum(OpsSecond);
+        }
+        catch (Exception e) {
+            System.out.println("Hubo un error al tratar de sumar estos valores");
+        }
+        return null;
+    }
+
+
 }
