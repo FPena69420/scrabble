@@ -20,6 +20,8 @@ class ValueTest {
 
     @Test
     void parseValue() {
+        float expected= (float) 33.4;
+        assertEquals(expected, B1.plus(F1).parseValue());
     }
 
     @Test

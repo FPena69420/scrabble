@@ -1,6 +1,8 @@
 package cl.uchile.dcc.scrabble.gui.tarea1.OpsTree.NodeTypes;
 
 
+import java.util.Objects;
+
 public abstract class NodoBinario extends Nodo {
     private Nodo izq;
     private Nodo der;
@@ -10,6 +12,7 @@ public abstract class NodoBinario extends Nodo {
         this.izq= izq;
         this.der= der;
     }
+
 
     @Override
     public java.lang.String getInfo() {
@@ -22,6 +25,24 @@ public abstract class NodoBinario extends Nodo {
 
     public Nodo getDer() {
         return this.der;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(NodoBinario.class, this.getInfo(), this.getIzq(), this.getDer());
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof NodoBinario) {
+            var o= (NodoBinario) obj;
+            return this.getInfo().equals(o.getInfo()) &&
+                    this.getIzq().getInfo().equals(o.getIzq().getInfo()) &&
+                    this.getDer().getInfo().equals(o.getDer().getInfo());
+        }
+        else{
+            return false;
+        }
     }
 }
 
