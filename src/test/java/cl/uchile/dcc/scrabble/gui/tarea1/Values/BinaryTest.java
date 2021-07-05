@@ -220,4 +220,14 @@ class BinaryTest {
         Float expected2= new Float((float) 3);
         assertEquals(expected2, nine.dived_by(F3));
     }
+
+    @Test
+    void getPrint() {
+        assertEquals("B|011.0", three.getPrint());
+    }
+
+    @Test
+    void negate() {
+        assertEquals(three.flip(), three.negate());
+    }
 }

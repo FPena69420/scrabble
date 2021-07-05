@@ -8,7 +8,7 @@ import java.util.Objects;
 public class NodedValue extends Nodo {
 
     public NodedValue(Value info){
-        super(info);
+        super(info, 1);
     }
 
 
@@ -24,17 +24,28 @@ public class NodedValue extends Nodo {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof NodedValue) {
-            var o= (NodedValue) obj;
-            return this.getInfo().equals(o.getInfo());
+        try {
+            if (obj instanceof NodedValue) {
+                var o= (NodedValue) obj;
+                return this.getInfo().equals(o.getInfo());
+            }
+            else{
+                return false;
+            }
         }
-        else{
-            return false;
+        catch (Exception e){
+            System.out.println("Hubo un error al tratar de comparar, revise su codigo e intente de nuevo.");
         }
+        return false;
     }
 
     @Override
     public Nodo eval() {
         return this;
+    }
+
+    @Override
+    public java.lang.String toString() {
+        return this.getInfo().getPrint();
     }
 }

@@ -7,8 +7,8 @@ public abstract class NodoUnario extends Nodo{
     private java.lang.String info;
     private Nodo hijo;
 
-    public NodoUnario(java.lang.String info, Nodo hijo) {
-        super(info);
+    public NodoUnario(java.lang.String info, int procedencia, Nodo hijo) {
+        super(info, procedencia);
         this.hijo= hijo;
     }
 
@@ -36,5 +36,9 @@ public abstract class NodoUnario extends Nodo{
         else{
             return false;
         }
+    }
+
+    public java.lang.String toString() {
+        return this.getInfo() + this.getHijo().toString();
     }
 }

@@ -7,7 +7,7 @@ import cl.uchile.dcc.scrabble.gui.tarea1.Values.Value;
 public class NodoResta extends NodoBinario {
 
     public NodoResta (Nodo izq, Nodo der) {
-        super(izq, "-", der);
+        super(izq, "-", 0, der);
     }
 
     @Override
@@ -18,7 +18,7 @@ public class NodoResta extends NodoBinario {
             return new NodedValue(IzqEval.minus(DerEval));
         }
         catch (Exception e) {
-            System.out.println("Hubo un error tratando de sumar");
+            System.out.println("Hubo un error tratando de restar");
         }
         return null;
     }

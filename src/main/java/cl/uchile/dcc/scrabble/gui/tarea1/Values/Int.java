@@ -69,6 +69,11 @@ public class Int extends Value implements TypesInterface, OperationsInterface {
     }
 
     @Override
+    public java.lang.String getPrint() {
+        return "I|" + this.getValue();
+    }
+
+    @Override
     public OperationsInterface sum(OperationsInterface ops) {
         return ops.SumedByInt(this);
     }

@@ -35,14 +35,7 @@ class ValueTest {
     }
 
     @Test
-    void over() {
-    }
+    void operations() {
 
-    @Test
-    void minus() {
-    }
-
-    @Test
-    void plus() {
     }
 }

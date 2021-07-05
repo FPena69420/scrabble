@@ -62,6 +62,11 @@ public class String extends Value implements TypesInterface, OperationsInterface
         return this.getValue();
     }
 
+    @Override
+    public java.lang.String getPrint() {
+        return "S|" + this.getValue();
+    }
+
 
     @Override
     public OperationsInterface sum(OperationsInterface ops) {

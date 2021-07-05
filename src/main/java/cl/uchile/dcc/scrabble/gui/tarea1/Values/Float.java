@@ -71,6 +71,11 @@ public class Float extends Value implements TypesInterface, OperationsInterface 
         return java.lang.String.valueOf(this.getValue());
     }
 
+    @Override
+    public java.lang.String getPrint() {
+        return "F|" + this.getValue();
+    }
+
 
     @Override
     public OperationsInterface sum(OperationsInterface ops) {

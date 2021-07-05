@@ -7,8 +7,8 @@ public abstract class NodoBinario extends Nodo {
     private Nodo izq;
     private Nodo der;
 
-    public NodoBinario(Nodo izq, java.lang.String info, Nodo der) {
-        super(info);
+    public NodoBinario(Nodo izq, java.lang.String info, int procedencia, Nodo der) {
+        super(info, procedencia);
         this.izq= izq;
         this.der= der;
     }
@@ -43,6 +43,27 @@ public abstract class NodoBinario extends Nodo {
         else{
             return false;
         }
+    }
+
+    public java.lang.String toString() {
+        java.lang.String retIzq;
+        java.lang.String retDer;
+
+        if (this.getIzq().getProcedencia() < this.getProcedencia()) {
+            retIzq= "(" + this.getIzq().toString() + ")";
+        }
+        else {
+            retIzq= this.getIzq().toString();
+        }
+
+        if (this.getDer().getProcedencia() < this.getProcedencia()) {
+            retDer= "(" + this.getDer().toString() + ")";
+        }
+        else {
+            retDer= this.getDer().toString();
+        }
+
+        return retIzq + " " + this.getInfo() + " " + retDer;
     }
 }
 

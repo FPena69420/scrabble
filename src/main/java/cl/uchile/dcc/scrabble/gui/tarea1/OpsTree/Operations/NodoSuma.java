@@ -7,7 +7,7 @@ import cl.uchile.dcc.scrabble.gui.tarea1.Values.Value;
 public class NodoSuma extends NodoBinario {
 
     public NodoSuma (Nodo izq, Nodo der) {
-        super(izq, "+", der);
+        super(izq, "+", 0, der);
     }
 
     @Override

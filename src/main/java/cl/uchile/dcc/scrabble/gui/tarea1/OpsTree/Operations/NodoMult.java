@@ -7,7 +7,7 @@ import cl.uchile.dcc.scrabble.gui.tarea1.Values.Value;
 public class NodoMult extends NodoBinario{
 
     public NodoMult (Nodo izq, Nodo der) {
-        super(izq, "*", der);
+        super(izq, "*", 1, der);
     }
 
     @Override
@@ -18,7 +18,7 @@ public class NodoMult extends NodoBinario{
             return new NodedValue(IzqEval.times(DerEval));
         }
         catch (Exception e) {
-            System.out.println("Hubo un error tratando de sumar");
+            System.out.println("Hubo un error tratando de multiplicar");
         }
         return null;
     }

@@ -15,6 +15,7 @@ class BoolTest {
     Bool TF1;
     Float F1;
     Int I1;
+    Binary Binary1;
     String expected;
 
     @BeforeEach
@@ -25,6 +26,7 @@ class BoolTest {
         TF1= new Bool(false);
         F1= new Float((float) 32.5);
         I1= new Int(28);
+        Binary1= new Binary("0110.0");
     }
 
     @Test
@@ -112,9 +114,34 @@ class BoolTest {
 
     @Test
     void operations() {
+        assertEquals(null, B1.sum(Binary1));
+        assertEquals(null, B1.substract(Binary1));
+        assertEquals(null, B1.mult(Binary1));
+        assertEquals(null, B1.dived_by(Binary1));
+
         assertEquals(null, B1.sum(TF1));
+        assertEquals(null, B1.substract(TF1));
+        assertEquals(null, B1.mult(TF1));
+        assertEquals(null, B1.dived_by(TF1));
+
+        assertEquals(null, B1.sum(F1));
         assertEquals(null, B1.substract(F1));
+        assertEquals(null, B1.mult(F1));
+        assertEquals(null, B1.dived_by(F1));
+
+        assertEquals(null, B1.sum(I1));
+        assertEquals(null, B1.substract(I1));
         assertEquals(null, B1.mult(I1));
-        assertEquals(null, B1.dived_by(B1));
+        assertEquals(null, B1.dived_by(I1));
+
+        assertEquals(null, B1.sum(S1));
+        assertEquals(null, B1.substract(S1));
+        assertEquals(null, B1.mult(S1));
+        assertEquals(null, B1.dived_by(S1));
+    }
+
+    @Test
+    void negate() {
+        assertEquals(TF1.flip(), TF1.negate());
     }
 }

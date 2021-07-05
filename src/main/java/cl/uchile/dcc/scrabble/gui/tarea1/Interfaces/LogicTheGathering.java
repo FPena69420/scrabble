@@ -8,4 +8,6 @@ public interface LogicTheGathering {
     LogicTheGathering AndedByBool(LogicTheGathering logic);
     LogicTheGathering OredByBinary(LogicTheGathering logic);
     LogicTheGathering OredByBool(LogicTheGathering logic);
+
+    LogicTheGathering flip();
 }

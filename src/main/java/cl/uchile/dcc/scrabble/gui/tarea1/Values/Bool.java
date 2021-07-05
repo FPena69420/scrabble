@@ -24,6 +24,21 @@ public class Bool extends Value implements TypesInterface, LogicTheGathering, Op
         }
     }
 
+    @Override
+    public Bool flip() {
+        if (this.getValue()){
+            return new Bool(false);
+        }
+        else {
+            return new Bool(true);
+        }
+    }
+
+    @Override
+    public Value negate() {
+        return this.flip();
+    }
+
     public static boolean ttbooleanvalue(java.lang.String string) {
         if (string.equals("0")){
             return false;
@@ -77,6 +92,11 @@ public class Bool extends Value implements TypesInterface, LogicTheGathering, Op
     @Override
     public java.lang.String toString() {
         return java.lang.String.valueOf(this.getValue());
+    }
+
+    @Override
+    public java.lang.String getPrint() {
+        return "TF|" + this.getValue();
     }
 
     public static java.lang.String BitAnd(java.lang.String bit1, java.lang.String bit2) {

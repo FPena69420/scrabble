@@ -43,6 +43,7 @@ public class Binary extends Value implements TypesInterface, LogicTheGathering, 
         return java.lang.String.valueOf(this.getValue().charAt(0));
     }
 
+    @Override
     public Binary flip(){
         /** Retorna un nuevo Binary tal que cada valor individual de this.value ha sido negado por
          negación lógica */
@@ -60,6 +61,11 @@ public class Binary extends Value implements TypesInterface, LogicTheGathering, 
             }
         }
         return new Binary(retstring);
+    }
+
+    @Override
+    public Value negate() {
+        return this.flip();
     }
 
     public Binary suma1(){
@@ -162,7 +168,12 @@ public class Binary extends Value implements TypesInterface, LogicTheGathering, 
 
     @Override
     public java.lang.String toString() {
-        return java.lang.String.valueOf(this.getValue());
+        return this.getValue();
+    }
+
+    @Override
+    public java.lang.String getPrint() {
+        return "B|" + this.getValue();
     }
 
     @Override

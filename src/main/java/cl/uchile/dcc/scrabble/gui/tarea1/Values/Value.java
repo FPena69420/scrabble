@@ -2,8 +2,6 @@ package cl.uchile.dcc.scrabble.gui.tarea1.Values;
 
 import cl.uchile.dcc.scrabble.gui.tarea1.Interfaces.OperationsInterface;
 
-
-
 public abstract class Value {
     private Object value;
 
@@ -15,6 +13,11 @@ public abstract class Value {
         return value;
     }
 
+    void setValue(Object aValue) {
+        this.value= aValue;
+    }
+
+    public abstract java.lang.String getPrint();
 
     public abstract OperationsInterface sum(OperationsInterface ops);
 
@@ -31,7 +34,7 @@ public abstract class Value {
             return (Value) this.mult(OpsSecond);
         }
         catch (Exception e) {
-            System.out.println("Hubo un error al tratar de multiplicar");
+            System.out.println("Hubo un error al tratar de multiplicar, revise su codigo e intente de nuevo");
         }
         return null;
     }
@@ -42,7 +45,7 @@ public abstract class Value {
             return (Value) this.dived_by(OpsSecond);
         }
         catch (Exception e) {
-            System.out.println("Hubo un error al tratar de dividir");
+            System.out.println("Hubo un error al tratar de dividir, revise su codigo e intente de nuevo");
         }
         return null;
     }
@@ -53,7 +56,7 @@ public abstract class Value {
             return (Value) this.substract(OpsSecond);
         }
         catch (Exception e) {
-            System.out.println("Hubo un error al tratar de restar");
+            System.out.println("Hubo un error al tratar de restar, revise su codigo e intente de nuevo");
         }
         return null;
     }
@@ -64,8 +67,12 @@ public abstract class Value {
             return (Value) this.sum(OpsSecond);
         }
         catch (Exception e) {
-            System.out.println("Hubo un error al tratar de sumar");
+            System.out.println("Hubo un error al tratar de sumar, revise su codigo e intente de nuevo");
         }
+        return null;
+    }
+
+    public Value negate(){
         return null;
     }
 }
