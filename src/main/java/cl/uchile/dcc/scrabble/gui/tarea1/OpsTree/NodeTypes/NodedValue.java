@@ -40,6 +40,7 @@ public class NodedValue extends Nodo {
     }
 
     @Override
+    /** Evalua el nodo */
     public Nodo eval() {
         return this;
     }

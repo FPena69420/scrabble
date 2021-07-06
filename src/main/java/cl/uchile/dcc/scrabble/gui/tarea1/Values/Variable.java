@@ -8,6 +8,10 @@ public class Variable extends Value implements OperationsInterface, LogicTheGath
         super(null);
     }
 
+    public java.lang.String toString () {
+        return java.lang.String.valueOf(this.parseValue());
+    }
+
     public void setBinary(java.lang.String value){
         try {
             this.setValue(new Binary(value));
@@ -351,6 +355,8 @@ public class Variable extends Value implements OperationsInterface, LogicTheGath
 
     @Override
     public LogicTheGathering flip() {
+        /** Retorna una nueva Variable que se corresponde con ocupar flip() sobre el valor que implementa la
+         interfaz LogicTheGathering almacenado, o null en caso de que no se cumpla eso ultimo */
         try {
             LogicTheGathering VValue= (LogicTheGathering) this.parseValue();
             return VValue.flip();
@@ -360,6 +366,7 @@ public class Variable extends Value implements OperationsInterface, LogicTheGath
     }
 
     public Value negate() {
+        /** Intenta aplicar flip() sobre el valor almacenado en esta Variable */
         try {
             return (Value) this.flip();
         }

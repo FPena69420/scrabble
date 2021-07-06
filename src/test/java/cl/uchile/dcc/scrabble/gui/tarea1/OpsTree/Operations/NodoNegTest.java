@@ -29,4 +29,14 @@ class NodoNegTest {
         NodedValue expected2= new NodedValue(null);
         assertNotEquals(expected2, NN2.eval());
     }
+
+    @Test
+    void hashChode() {
+        NodoNeg NN1= new NodoNeg(new NodedValue(B1));
+        Nodo expected= new NodoNeg(new NodedValue(new Binary("01010")));
+        assertEquals(expected.hashCode(), NN1.hashCode());
+        assertEquals(true, expected.equals(NN1));
+        assertEquals(expected.getInfo(), NN1.getInfo());
+        assertEquals(expected.toString(), NN1.toString());
+    }
 }

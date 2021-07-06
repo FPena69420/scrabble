@@ -75,6 +75,9 @@ class FloatTest {
         expected= new Float((float) 256.125).ttBinary();
         Binary f5= new Float((float) 256.12500).ttBinary();
         assertEquals(expected, f5);
+
+        Binary expected2= new Binary("01.0");
+        assertEquals(expected2, one.ttBinary());
     }
 
     @Test

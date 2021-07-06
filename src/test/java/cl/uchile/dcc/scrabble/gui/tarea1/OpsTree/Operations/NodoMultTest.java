@@ -24,10 +24,21 @@ class NodoMultTest {
     void eval() {
         NodedValue expected= new NodedValue(new Binary("0100.0"));
         assertEquals(expected, NM1.eval());
+        assertEquals(expected.hashCode(), NM1.eval().hashCode());
+        assertEquals(expected.toString(), NM1.eval().toString());
 
         NodedValue NVNULL= new NodedValue(null);
         NM2= new NodoMult(NVIZQ, NVNULL);
         assertNotEquals(NVNULL, NM2.eval());
         assertEquals(NVNULL.getInfo(), NM2.eval().getInfo());
+    }
+
+    @Test
+    void equals() {
+        NodoBinario expected= new NodoMult(new NodedValue(new Binary("010")), new NodedValue(new Int(2)));
+        assertEquals(expected.hashCode(), NM1.hashCode());
+        assertEquals(expected, NM1);
+        assertEquals(expected.getInfo(), NM1.getInfo());
+        assertEquals(expected.toString(), NM1.toString());
     }
 }

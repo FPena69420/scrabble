@@ -35,7 +35,9 @@ class ValueTest {
     }
 
     @Test
-    void operations() {
-
+    void negate() {
+        Value X1= new Binary("0111001");
+        Binary expected= new Binary("1000110");
+        assertEquals(expected, X1.negate());
     }
 }
