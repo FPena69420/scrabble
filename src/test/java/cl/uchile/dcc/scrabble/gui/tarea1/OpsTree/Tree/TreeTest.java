@@ -40,6 +40,11 @@ class TreeTest {
 
     @Test
     void print() {
+        T1.print();
+
+        NS1= new NodoSuma(NTTBNVIZQ2, NVDER2);
+        T1.print();
+
         NVIZQ1= new NodedValue(new Binary("010"));
         NVDER2= new NodedValue(new Int(2));
         NVIZQ2= new NodedValue(new Float((float) 3.5));
