@@ -164,3 +164,30 @@ codigo de esta, se recupera con la primera.
 
 Con esto concluyo la exposición de mi código. Para mayor información, mirar las
 clases mismas o los tests.
+
+---Actualización tarea 3---
+
+Los cambios hechos para esta entrega no fueron muchos. Se agregó el método compareTo() 
+a Value.java, por lo que cualquier clase que herede de ella puede usarlo. 
+Lo único que hay que hacer es crear una variable que almacene el resultado y 
+ocupar el método sobre un Value para comparar a otro. i.e.: X1= B1.compareTo(F1). 
+Una conclusión de esto es que se pueden comparar hasta Values que no son estrictamente numéricos... (No he 
+probado este método en Variables, pero en principio no debería importar por la inutilidad de Variable.java 
+(mirar la Actualización tarea 2)). En caso de que alguno de los dos valores a comparar no sea numérico, la 
+comparación retorna el int 7. ¿Por qué 7? Buena pregunta. En caso de que sí se puedan comparar, el método 
+retorna lo requerido como lo establece la tarea.
+
+Como programador no le vi el sentido a programar esto debido a que no aporta en nada en lo que se supone que 
+debería hacerlo, pero supongo que mi opinión no importa.
+
+Las otras adiciones son If.java y While.java. Dos clases que ayudan al control de flujo en la tarea. Funcionan 
+tal y como los requiere la tarea; IF1= new If(Tree, Tree, Tree), con el primer Tree un condicional, el 
+segundo, el Tree que se ha de evaluar en caso de que la evaluación del condicional retorne true, y el segundo 
+el que se evalúa en el caso de que sea falso.
+
+Un While se instancia como: new While(Tree, Tree), el primero el Tree condicional, el segundo el que se ha 
+de evaluar hasta que el coondicional se haga falso. 
+
+Ambos (If y While) se evalúan de la siguiente manera: resultado= {If || While}.eval()  
+
+Eso es todo por mi parte.
