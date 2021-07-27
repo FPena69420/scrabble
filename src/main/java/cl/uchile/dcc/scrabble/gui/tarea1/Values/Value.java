@@ -1,8 +1,9 @@
 package cl.uchile.dcc.scrabble.gui.tarea1.Values;
 
 import cl.uchile.dcc.scrabble.gui.tarea1.Interfaces.OperationsInterface;
+import cl.uchile.dcc.scrabble.gui.tarea1.Interfaces.TypesInterface;
 
-public abstract class Value {
+public abstract class Value implements Comparable<Value> {
     private Object value;
 
     public Value(Object value) {
@@ -75,4 +76,52 @@ public abstract class Value {
     public Value negate(){
         return null;
     }
+    
+    @Override
+    public int compareTo(Value other) {
+        try {
+            TypesInterface NumOther= (TypesInterface) other;
+            Float FOther= NumOther.ttFloat();
+            float fOther= FOther.getValue();
+            TypesInterface NumThis= (TypesInterface) this;
+            Float FThis= NumThis.ttFloat();
+            float fThis= FThis.getValue();
+
+            if (fThis> fOther) {
+                return 1;
+            }
+            else if (fThis== fOther) {
+                return 0;
+            }
+            else {
+                return -1;
+            }
+        }
+        catch (Exception e) {
+            System.out.println("Hubo un error tratando de comparar, revise su codigo e intente de nuevo");
+            return 7;
+        }
+    }
+
+    /**
+    public Bool usefulCompareTo(Value other) {
+        try {
+            TypesInterface NumOther= (TypesInterface) other;
+            Float FOther= NumOther.ttFloat();
+            TypesInterface NumThis= (TypesInterface) this;
+            Float FThis= NumThis.ttFloat();
+
+            if (FThis.equals(FOther)) {
+                return new Bool(true);
+            }
+            else {
+                return new Bool(false);
+            }
+        }
+        catch (Exception e) {
+            System.out.println("Hubo un error tratando de comparar, revise su codigo e intente de nuevo");
+            return new Bool(false);
+        }
+    }
+     */
 }

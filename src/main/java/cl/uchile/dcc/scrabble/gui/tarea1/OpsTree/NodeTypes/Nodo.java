@@ -1,6 +1,11 @@
 package cl.uchile.dcc.scrabble.gui.tarea1.OpsTree.NodeTypes;
 
 
+import cl.uchile.dcc.scrabble.gui.tarea1.Interfaces.TypesInterface;
+import cl.uchile.dcc.scrabble.gui.tarea1.Values.Bool;
+import cl.uchile.dcc.scrabble.gui.tarea1.Values.Float;
+import cl.uchile.dcc.scrabble.gui.tarea1.Values.Value;
+
 public abstract class Nodo {
     private Object info;
     private int procedencia;
@@ -19,4 +24,10 @@ public abstract class Nodo {
     }
 
     public abstract Nodo eval();
+
+    /**
+    public NodedValue usefulCompareTo(Nodo other) {
+        return new NodedValue((Bool) ((Value) this.eval().getInfo()).usefulCompareTo((Value) other.eval().getInfo()));
+    }
+     */
 }

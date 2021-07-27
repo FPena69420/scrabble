@@ -27,7 +27,7 @@ public class NodedValue extends Nodo {
         try {
             if (obj instanceof NodedValue) {
                 var o= (NodedValue) obj;
-                return this.getInfo().equals(o.getInfo());
+                return ((this.getInfo()==null && o.getInfo()== null) || this.getInfo().equals(o.getInfo()));
             }
             else{
                 return false;
@@ -47,6 +47,11 @@ public class NodedValue extends Nodo {
 
     @Override
     public java.lang.String toString() {
-        return this.getInfo().getPrint();
+        if (this.getInfo()!= null) {
+            return this.getInfo().getPrint();
+        }
+        else {
+            return "null";
+        }
     }
 }

@@ -24,6 +24,15 @@ public class Bool extends Value implements TypesInterface, LogicTheGathering, Op
         }
     }
 
+    public int getintvalue() {
+        if (this.getValue()== false) {
+            return 0;
+        }
+        else {
+            return 1;
+        }
+    }
+
     @Override
     public Bool flip() {
         if (this.getValue()){
